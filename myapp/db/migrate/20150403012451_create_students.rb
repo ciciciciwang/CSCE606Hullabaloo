@@ -4,8 +4,8 @@ class CreateStudents < ActiveRecord::Migration
       t.string :name
       t.integer :UIN
       t.string :email
-      t.boolean :UScitizen
-      t.string :degree_level
+      t.boolean :US_citizen
+      t.string :degree
       t.string :position_type
 
       t.timestamps null: false

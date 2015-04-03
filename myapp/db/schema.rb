@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331220905) do
+ActiveRecord::Schema.define(version: 20150403012451) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "Student_Name"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150331220905) do
     t.string   "name"
     t.integer  "UIN"
     t.string   "email"
-    t.boolean  "UScitizen"
-    t.string   "degree_level"
+    t.boolean  "US_citizen"
+    t.string   "degree"
     t.string   "position_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'factory'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -41,5 +42,20 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+	gem 'cucumber-rails', :require => false
+	gem 'cucumber-rails-training-wheels'
+	gem 'database_cleaner'
+	gem 'capybara'
+	gem 'launchy'
+	#gem 'rspec-rails'
+end
+
+group :development, :test do 
+	gem 'rspec-rails', '~> 3.0'
+	gem 'factory_girl_rails'
+	gem 'shoulda-matchers'
 end
 

@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :UIN %><br>
-    <%= f.number_field :UIN %>
+    <%= f.text_field :UIN %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :degree %><br>
-    <%= f.select :degree options_for_select(%w[Undergraduate Graduate PHD])%>
+    <%= f.text_field :degree %>
   </div>
   <div class="field">
     <%= f.label :position_type %><br>
-    <%= f.select :position_type options_for_select(%w[Intern Full-time])%>
+    <%= f.text_field :position_type %>
   </div>
   <div class="actions">
     <%= f.submit %>

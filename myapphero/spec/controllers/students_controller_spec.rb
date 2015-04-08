@@ -118,7 +118,7 @@ RSpec.describe StudentsController, type: :controller do
         { "name" => "John",
           "UIN" => "324500333",
           "email" => "johns@hfsk.com",
-          "US_citizen" => true,
+          "US_citizen" => "true",
           "degree" => "Graduate",
           "position_type" => "Intern"
         }

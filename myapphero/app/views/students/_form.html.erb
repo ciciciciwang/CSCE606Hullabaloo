@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :degree %><br>
-    <%= f.select :degree options_for_select(%w[Undergraduate Graduate PHD])%>
+    <%= f.select :degree, options_for_select(%w[Undergraduate Graduate PHD])%>
   </div>
   <div class="field">
     <%= f.label :position_type %><br>
-    <%= f.select :position_type options_for_select(%w[Intern Full-time])%>
+    <%= f.select :position_type, options_for_select(%w[Intern Full-time])%>
   </div>
   <div class="actions">
     <%= f.submit %>

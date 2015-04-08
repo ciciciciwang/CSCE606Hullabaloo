@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize, only: [:index, :destroy], :except => :new_session_path
   # GET /students
   # GET /students.json
   def index

@@ -25,15 +25,15 @@
   </div>
   <div class="field">
     <%= f.label :US_citizen %><br>
-    <%= f.text_field :US_citizen %>
+    <%= f.check_box :US_citizen %>
   </div>
   <div class="field">
     <%= f.label :degree %><br>
-    <%= f.text_field :degree %>
+    <%= f.select :degree options_for_select(%w[Undergraduate Graduate PHD])%>
   </div>
   <div class="field">
     <%= f.label :position_type %><br>
-    <%= f.text_field :position_type %>
+    <%= f.select :position_type options_for_select(%w[Intern Full-time])%>
   </div>
   <div class="actions">
     <%= f.submit %>

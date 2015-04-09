@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.authenticate(params[:login], params[:password])  
     if @user  
       session[:user_id] = @user.id  
-      flash[:notice] = "Weclome #{@user.login}"  
+      flash[:notice] = "Welcome #{@user.login}"  
       redirect_to students_url  
     else  
       flash[:notice] = "The login or password is not correct."  

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(:login, :password)
   end
+
   # # GET /users
   # # GET /users.json
   # def index

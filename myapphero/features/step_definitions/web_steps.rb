@@ -48,6 +48,12 @@ Given /^I have entered my information$/ do
    @student = Student.last()
 end
 
+When /^I enter correct user information$/ do
+  @user = User.new
+  @user.login = "Jay"
+  @user.password = "123"
+  @user.save
+end
 
 When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
@@ -127,6 +133,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
     assert page.has_content?(text)
   end
 end
+
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)

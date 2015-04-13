@@ -87,7 +87,32 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
+When /^(?:|I )change "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
 
+
+Given /^(?:|I )want to test the record management$/ do 
+  @student = Student.new
+  @student.name = "John"
+  @student.UIN = "12354145"
+  @student.email="afdldw@alkdfjl.com"
+  @student.US_citizen = true
+  @student.degree = "Undergraduate"
+  @student.position_type ="Intern"
+  @student.save
+end
+
+Then /^(?:|I )can go back to (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
+Then /^(?:|I )can view the new information of student$/ do
+
+end
+
+Then /^(?:|I )confirm to delete the student$/ do
+end
 
 # Use this to fill in an entire form with data from a table. Example:
 #

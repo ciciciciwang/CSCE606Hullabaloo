@@ -28,6 +28,7 @@ module NavigationHelpers
 
     when /^the listing students page$/
         '/students'
+    
 
     else
       begin

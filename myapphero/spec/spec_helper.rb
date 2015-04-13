@@ -85,3 +85,10 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def assert_update_values(record, values)
+  values.each do |field, value|
+    record_value = record.send field
+    expect(record_value).to eq(value)
+  end
+end

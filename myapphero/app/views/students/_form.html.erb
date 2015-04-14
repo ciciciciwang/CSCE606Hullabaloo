@@ -24,16 +24,16 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :US_citizen %><br>
-    <%= f.check_box :US_citizen %>
+    <%= f.label :US_Citizen %><br>
+    <%= f.check_box :US_Citizen %>
   </div>
   <div class="field">
     <%= f.label :degree %><br>
-    <%= f.select :degree, options_for_select(%w[Undergraduate Graduate PHD])%>
+    <%= f.select :degree, options_for_select(%w[B.S. M.S. PH.D]) %>
   </div>
   <div class="field">
     <%= f.label :position_type %><br>
-    <%= f.select :position_type, options_for_select(%w[Intern Full-time])%>
+    <%= f.select :position_type, options_for_select(%w[Internship Full-time]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

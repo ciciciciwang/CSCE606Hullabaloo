@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Companies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact person</th>
+      <th>Contact email</th>
+      <th>Rep 1</th>
+      <th>Rep 2</th>
+      <th>Rep 3</th>
+      <th>Rep 4</th>
+      <th>Rep 5</th>
+      <th>Rep 6</th>
+      <th>Student level</th>
+      <th>Job type</th>
+      <th>Interview1 rep no</th>
+      <th>Interview2 rep no</th>
+      <th>Clinic1 rep no</th>
+      <th>Clinic2 rep no</th>
+      <th>Clinic3 rep no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.contact_person %></td>
+        <td><%= company.contact_email %></td>
+        <td><%= company.rep_1 %></td>
+        <td><%= company.rep_2 %></td>
+        <td><%= company.rep_3 %></td>
+        <td><%= company.rep_4 %></td>
+        <td><%= company.rep_5 %></td>
+        <td><%= company.rep_6 %></td>
+        <td><%= company.student_level %></td>
+        <td><%= company.job_type %></td>
+        <td><%= company.interview1_rep_no %></td>
+        <td><%= company.interview2_rep_no %></td>
+        <td><%= company.clinic1_rep_no %></td>
+        <td><%= company.clinic2_rep_no %></td>
+        <td><%= company.clinic3_rep_no %></td>
+        <td><%= link_to 'Show', company %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company', new_company_path %>

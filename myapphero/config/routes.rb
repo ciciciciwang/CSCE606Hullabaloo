@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :students
+  resources :companies
   get 'useradds/new'
 
   resources :users
   resources :useradds
   resources :sessions
-  resources :students
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'seesions#destroy'

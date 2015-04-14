@@ -23,24 +23,12 @@ RSpec.describe StudentsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Student. As you add validations to Student, be sure to
   # adjust the attributes here as well.
-  let(:student) {FactoryGirl.create(:student)}
-
-
   let(:valid_attributes) {
-    { "name" => "John",
-      "UIN" => "324500333",
-      "email" => "johns@hfsk.com",
-      "US_citizen" => true,
-      "degree" => "Graduate",
-      "position_type" => "Intern"
-    }
+    skip("Add a hash of attributes valid for your model")
   }
 
   let(:invalid_attributes) {
-    { "name" => nil,
-      "UIN" => nil,
-      "email" => nil,
-    }
+    skip("Add a hash of attributes invalid for your model")
   }
 
   # This should return the minimal set of values that should be in the session
@@ -115,20 +103,14 @@ RSpec.describe StudentsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { "name" => "John",
-          "UIN" => "324500333",
-          "email" => "johns@hfsk.com",
-          "US_citizen" => "true",
-          "degree" => "Graduate",
-          "position_type" => "Intern"
-        }
+        skip("Add a hash of attributes valid for your model")
       }
 
       it "updates the requested student" do
         student = Student.create! valid_attributes
         put :update, {:id => student.to_param, :student => new_attributes}, valid_session
         student.reload
-        assert_update_values student.reload, new_attributes
+        skip("Add assertions for updated state")
       end
 
       it "assigns the requested student as @student" do

@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
+#<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
+  before_filter :authorize, only: [:index, :destroy], :except => :new_session_path
   # GET /companies
   # GET /companies.json
   def index

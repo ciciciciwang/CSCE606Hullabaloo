@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/students'
+      '/sessions/new'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
@@ -25,6 +25,10 @@ module NavigationHelpers
 
     when /^the edit information page$/i
          edit_student_path(@student)
+
+    when /^the listing students page$/
+        '/students'
+    
 
     else
       begin

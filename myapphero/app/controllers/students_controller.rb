@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
+  #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
+  before_filter :authorize, only: [:index, :destroy], :except => :new_session_path
   # GET /students
   # GET /students.json
   def index
@@ -69,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :UIN, :email, :US_citizen, :degree, :position_type)
+      params.require(:student).permit(:name, :UIN, :email, :US_Citizen, :degree, :position_type)
     end
 end

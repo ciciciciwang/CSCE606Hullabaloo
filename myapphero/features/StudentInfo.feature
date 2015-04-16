@@ -4,10 +4,10 @@ Feature: Students can enter their Infomation
   As a student
   I want to enter my information into the system
 
-Scenario: Go to new student page
-	Given I am on the home page
-	When I click on "New Student"
-	Then I should be on the new student page
+# Scenario: Go to new student page
+# 	Given I am on the home page
+# 	When I click on "New Student"
+# 	Then I should be on the new student page
 
 Scenario: Enter the student infromation
 	Given I am on the new student page

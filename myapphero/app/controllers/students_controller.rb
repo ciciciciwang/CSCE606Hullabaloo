@@ -16,11 +16,13 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
+    @types = Timeslot.where("section = 'Resume Clinic 1' AND stunum>0").collect{|item| [item.slot]}
     @student = Student.new
   end
 
   # GET /students/1/edit
   def edit
+    @types = Timeslot.where("section = 'Resume Clinic 1' AND stunum>0").collect{|item| [item.slot]}
   end
 
   # POST /students
@@ -71,6 +73,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :UIN, :email, :US_Citizen, :degree, :position_type)
+      params.require(:student).permit(:id, :name, :UIN, :email, :US_Citizen, :degree, :position_type, :Mock_1, :Mock_2, :Resume_1, :Resume_2, :Resume_3, :Lunch)
     end
 end

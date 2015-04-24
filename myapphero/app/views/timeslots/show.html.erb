@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attdate:</strong>
+  <%= @timeslot.AttDate %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @timeslot.Section %>
+</p>
+
+<p>
+  <strong>Slot:</strong>
+  <%= @timeslot.Slot %>
+</p>
+
+<p>
+  <strong>Comnum:</strong>
+  <%= @timeslot.comNum %>
+</p>
+
+<p>
+  <strong>Stunum:</strong>
+  <%= @timeslot.stuNum %>
+</p>
+
+<%= link_to 'Edit', edit_timeslot_path(@timeslot) %> |
+<%= link_to 'Back', timeslots_path %>

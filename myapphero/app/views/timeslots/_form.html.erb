@@ -1,0 +1,37 @@
+<%= form_for(@timeslot) do |f| %>
+  <% if @timeslot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timeslot.errors.count, "error") %> prohibited this timeslot from being saved:</h2>
+
+      <ul>
+      <% @timeslot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :AttDate %><br>
+    <%= f.text_field :AttDate %>
+  </div>
+  <div class="field">
+    <%= f.label :Section %><br>
+    <%= f.text_field :Section %>
+  </div>
+  <div class="field">
+    <%= f.label :Slot %><br>
+    <%= f.text_field :Slot %>
+  </div>
+  <div class="field">
+    <%= f.label :comNum %><br>
+    <%= f.number_field :comNum %>
+  </div>
+  <div class="field">
+    <%= f.label :stuNum %><br>
+    <%= f.number_field :stuNum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,1 +1,3 @@
 rails generate scaffold company name:string contact_person:string contact_email:string rep_1:string rep_2:string rep_3:string rep_4:string rep_5:string rep_6:string student_level:string job_type:string interview1_rep_no:integer interview2_rep_no:integer clinic1_rep_no:integer clinic2_rep_no:integer clinic3_rep_no:integer
+
+rails g scaffold timeslot att_date:string section:string slot:string comnum:integer stunum:integer

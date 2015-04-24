@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :timeslot do
-    AttDate "MyString"
-Section "MyString"
-Slot "MyString"
-comNum 1
-stuNum 1
+    att_date "MyString"
+section "MyString"
+slot "MyString"
+comnum 1
+stunum 1
   end
 
 end

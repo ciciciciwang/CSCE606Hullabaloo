@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "timeslots/show", type: :view do
   before(:each) do
     @timeslot = assign(:timeslot, Timeslot.create!(
-      :AttDate => "Att Date",
-      :Section => "Section",
-      :Slot => "Slot",
-      :comNum => 1,
-      :stuNum => 2
+      :att_date => "Att Date",
+      :section => "Section",
+      :slot => "Slot",
+      :comnum => 1,
+      :stunum => 2
     ))
   end
 

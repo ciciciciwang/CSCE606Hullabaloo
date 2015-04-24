@@ -4,18 +4,18 @@ RSpec.describe "timeslots/index", type: :view do
   before(:each) do
     assign(:timeslots, [
       Timeslot.create!(
-        :AttDate => "Att Date",
-        :Section => "Section",
-        :Slot => "Slot",
-        :comNum => 1,
-        :stuNum => 2
+        :att_date => "Att Date",
+        :section => "Section",
+        :slot => "Slot",
+        :comnum => 1,
+        :stunum => 2
       ),
       Timeslot.create!(
-        :AttDate => "Att Date",
-        :Section => "Section",
-        :Slot => "Slot",
-        :comNum => 1,
-        :stuNum => 2
+        :att_date => "Att Date",
+        :section => "Section",
+        :slot => "Slot",
+        :comnum => 1,
+        :stunum => 2
       )
     ])
   end

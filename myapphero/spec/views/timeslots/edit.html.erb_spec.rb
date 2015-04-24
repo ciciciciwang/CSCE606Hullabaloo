@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "timeslots/edit", type: :view do
   before(:each) do
     @timeslot = assign(:timeslot, Timeslot.create!(
-      :AttDate => "MyString",
-      :Section => "MyString",
-      :Slot => "MyString",
-      :comNum => 1,
-      :stuNum => 1
+      :att_date => "MyString",
+      :section => "MyString",
+      :slot => "MyString",
+      :comnum => 1,
+      :stunum => 1
     ))
   end
 
@@ -16,15 +16,15 @@ RSpec.describe "timeslots/edit", type: :view do
 
     assert_select "form[action=?][method=?]", timeslot_path(@timeslot), "post" do
 
-      assert_select "input#timeslot_AttDate[name=?]", "timeslot[AttDate]"
+      assert_select "input#timeslot_att_date[name=?]", "timeslot[att_date]"
 
-      assert_select "input#timeslot_Section[name=?]", "timeslot[Section]"
+      assert_select "input#timeslot_section[name=?]", "timeslot[section]"
 
-      assert_select "input#timeslot_Slot[name=?]", "timeslot[Slot]"
+      assert_select "input#timeslot_slot[name=?]", "timeslot[slot]"
 
-      assert_select "input#timeslot_comNum[name=?]", "timeslot[comNum]"
+      assert_select "input#timeslot_comnum[name=?]", "timeslot[comnum]"
 
-      assert_select "input#timeslot_stuNum[name=?]", "timeslot[stuNum]"
+      assert_select "input#timeslot_stunum[name=?]", "timeslot[stunum]"
     end
   end
 end

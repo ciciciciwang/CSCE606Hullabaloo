@@ -69,6 +69,6 @@ class TimeslotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeslot_params
-      params.require(:timeslot).permit(:AttDate, :Section, :Slot, :comNum, :stuNum)
+      params.require(:timeslot).permit(:att_date, :section, :slot, :comnum, :stunum)
     end
 end

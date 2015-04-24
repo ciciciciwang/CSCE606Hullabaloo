@@ -16,22 +16,52 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @types = Timeslot.where("section = 'Resume Clinic 1' AND stunum>0").collect{|item| [item.slot]}
     @student = Student.new
+    @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
+    @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
+    @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
+    @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
+    @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
+    @lunch, @lunch_slots = set_menu('Lunch')
+    
   end
 
   # GET /students/1/edit
   def edit
-    @types = Timeslot.where("section = 'Resume Clinic 1' AND stunum>0").collect{|item| [item.slot]}
+    @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
+    @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
+    @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
+    @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
+    @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
+    @lunch, @lunch_slots = set_menu('Lunch')
+
+
+   # temp1, temp2 = set_menu('Resume Clinic 1')
+    # Timeslot.increase_1(@resume_1, @student.id, 'Resume_1')
+    # temp1, temp2 = set_menu('Resume Clinic 2')
+    # Timeslot.increase_1(temp1, @student.id, 'Resume_2')
   end
 
   # POST /students
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
+    
     respond_to do |format|
       if @student.save
+        temp1, temp2 = set_menu('Mock Interview 1')
+        Timeslot.decrease_1(temp1, student_params, :Mock_1)
+        temp1, temp2 = set_menu('Mock Interview 2')
+        Timeslot.decrease_1(temp1, student_params, :Mock_2)
+        temp1, temp2 = set_menu('Resume Clinic 1')
+        Timeslot.decrease_1(temp1, student_params, :Resume_1)
+        temp1, temp2 = set_menu('Resume Clinic 2')
+        Timeslot.decrease_1(temp1, student_params, :Resume_2)
+        emp1, temp2 = set_menu('Resume Clinic 3')
+        Timeslot.decrease_1(temp1, student_params, :Resume_3)
+        temp1, temp2 = set_menu('Lunch')
+        Timeslot.decrease_1(temp1, student_params, :Lunch)
+
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
@@ -45,12 +75,39 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
+      temp1, temp2 = set_menu('Mock Interview 1')
+      Timeslot.increase_1(temp1, @student.id, 'Mock_1')
+      temp1, temp2 = set_menu('Mock Interview 2')
+      Timeslot.increase_1(temp1, @student.id, 'Mock_1')
+      temp1, temp2 = set_menu('Resume Clinic 1')
+      Timeslot.increase_1(temp1, @student.id, 'Resume_1')
+      temp1, temp2 = set_menu('Resume Clinic 2')
+      Timeslot.increase_1(temp1, @student.id, 'Resume_2')
+      temp1, temp2 = set_menu('Resume Clinic 3')
+      Timeslot.increase_1(temp1, @student.id, 'Resume_3')
+      temp1, temp2 = set_menu('Lunch')
+      Timeslot.increase_1(temp1, @student.id, 'Lunch')
+
       if @student.update(student_params)
+        temp1, temp2 = set_menu('Mock Interview 1')
+        Timeslot.decrease_1(temp1, student_params, :Mock_1)
+        temp1, temp2 = set_menu('Mock Interview 2')
+        Timeslot.decrease_1(temp1, student_params, :Mock_2)
+        temp1, temp2 = set_menu('Resume Clinic 1')
+        Timeslot.decrease_1(temp1, student_params, :Resume_1)
+        temp1, temp2 = set_menu('Resume Clinic 2')
+        Timeslot.decrease_1(temp1, student_params, :Resume_2)
+        emp1, temp2 = set_menu('Resume Clinic 3')
+        Timeslot.decrease_1(temp1, student_params, :Resume_3)
+        temp1, temp2 = set_menu('Lunch')
+        Timeslot.decrease_1(temp1, student_params, :Lunch)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
+        Timeslot.decrease_1(temp1, student_params, :Resume_1)
         format.html { render :edit }
         format.json { render json: @student.errors, status: :unprocessable_entity }
+        raise ActiveRecord::Rollback
       end
     end
   end
@@ -65,7 +122,20 @@ class StudentsController < ApplicationController
     end
   end
 
+
   private
+
+ 
+   def set_menu(arg)
+      @result_slots= Timeslot.where("section = ? AND stunum>0", arg).collect{|item| [item.id, item.slot]}
+      @slots = ['Not Attend']
+
+        @result_slots.each do |item|
+          @slots<<item[1]
+        end
+      return @result_slots, @slots
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])

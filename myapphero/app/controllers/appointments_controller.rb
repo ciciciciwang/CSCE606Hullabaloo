@@ -61,6 +61,13 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  helper_method :generate
+
+  def generate
+    matchappoint('10:20am-10:40am', 'Mock_1', 'Platinum') 
+    redirect_to students_url, notice: 'Appointment was successfully destroyed.' 
+  end
+################################################################ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
@@ -71,4 +78,41 @@ class AppointmentsController < ApplicationController
     def appointment_params
       params.require(:appointment).permit(:section, :time_slot, :company, :student, :UIN)
     end
+
+##############################################################
+=begin
+    def matchapp()
+        matchappoint('9:30 - 9:50', 'Mock_1','apltinum')
+    end
+=end
+    def matchappoint(arg, mock, level) 
+      
+      company = Company.where("sponsor_level = ? AND intvw_1_rep_no > 0 ", level).collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.intvw_1_rep_no]}
+
+
+      student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+      # #matchnum = company.
+      student.each do |student|
+       company.each do |item|
+          # if (item.intvw_1_rep_no > 0 && item.jobtype == student.position_type && 
+      #       # item.student_level == student.degree && item.citizenship == US_Citizen)
+
+            appointment = Appointment.new
+            getone = student.last
+            student.pop
+            appointment.section = mock
+            appointment.time_slot = getone[5]
+            appointment.company = item[1]
+            appointment.student = getone[1]
+            appointment.UIN = student[0]
+            item[4]-=1
+            appointment.save
+      #     # end
+        end
+      end
+    end
+
+
+    
+################################################################
 end

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'sessions#new'
   
+
+  get '/generate' => 'appointments#generate'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

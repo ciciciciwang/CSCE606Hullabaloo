@@ -42,11 +42,21 @@ aside {
   }
 }
 /* forms */
+ h1 {
+      font-size: 2em;
+      text-align: left;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      margin-top: 5px;
+    }
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
+  width: auto;
+  margin-left: 20px;
+  margin-bottom: 5px;
+      margin-top: 5px;
+  /*padding-left: 150;*/
   @include box_sizing;
 }
 

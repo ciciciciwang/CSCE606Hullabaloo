@@ -102,7 +102,7 @@ class AppointmentsController < ApplicationController
             #student.pop
             appointment.section = mock
             appointment.time_slot = getone[5]
-            appointment.company = item[0]
+            appointment.company = item[1]
             appointment.student = getone[1]
             appointment.UIN = student[0]
             item[4]-=1

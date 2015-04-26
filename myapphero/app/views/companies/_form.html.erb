@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :"Company Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
@@ -25,19 +25,19 @@
   </div>
   <div class="field">
     <%= f.label :sponsor_level %><br>
-    <%= f.text_field :sponsor_level %>
+    <%= f.select :sponsor_level, options_for_select(%w[Platinum Gold Silver]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :citizenship %><br>
-    <%= f.text_field :citizenship %>
+    <%= f.select :citizenship, options_for_select(["US Citizen Only"  ]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :job_type %><br>
-    <%= f.text_field :job_type %>
+    <%= f.select :job_type, options_for_select(%w[Internship Full-time Any ]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :student_level %><br>
-    <%= f.text_field :student_level %>
+    <%= f.select :student_level, options_for_select(%w[B.S. Master's PH.D Any]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :rep_1 %><br>
@@ -63,33 +63,26 @@
     <%= f.label :rep_6 %><br>
     <%= f.text_field :rep_6 %>
   </div>
-  <div class="field">
-    <%= f.label :job_type %><br>
-    <%= f.text_field :job_type %>
-  </div>
-  <div class="field">
-    <%= f.label :student_level %><br>
-    <%= f.text_field :student_level %>
-  </div>
+  
   <div class="field">
     <%= f.label :intvw_1_rep_no %><br>
-    <%= f.number_field :intvw_1_rep_no %>
+    <%= f.select :intvw_1_rep_no, options_for_select(%w[0 1 2 3 4 5 6]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :intvw_2_rep_no %><br>
-    <%= f.number_field :intvw_2_rep_no %>
+    <%= f.select :intvw_2_rep_no, options_for_select(%w[0 1 2 3 4 5 6]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :clinic_1_rep_no %><br>
-    <%= f.number_field :clinic_1_rep_no %>
+    <%= f.select :clinic_1_rep_no, options_for_select(%w[0 1 2 3 4 5 6]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :clinic_2_rep_no %><br>
-    <%= f.number_field :clinic_2_rep_no %>
+    <%= f.select :clinic_2_rep_no, options_for_select(%w[0 1 2 3 4 5 6]), :prompt=>"---Please select---" %>
   </div>
   <div class="field">
     <%= f.label :clinic_3_rep_no %><br>
-    <%= f.number_field :clinic_3_rep_no %>
+    <%= f.select :clinic_3_rep_no, options_for_select(%w[0 1 2 3 4 5 6]), :prompt=>"---Please select---" %>
   </div>
   <div class="actions">
     <%= f.submit %>

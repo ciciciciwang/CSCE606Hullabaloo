@@ -17,8 +17,6 @@ RSpec.describe "companies/index", type: :view do
         :rep_4 => "Rep 4",
         :rep_5 => "Rep 5",
         :rep_6 => "Rep 6",
-        :job_type => "Job Type",
-        :student_level => "Student Level",
         :intvw_1_rep_no => 1,
         :intvw_2_rep_no => 2,
         :clinic_1_rep_no => 3,
@@ -39,8 +37,6 @@ RSpec.describe "companies/index", type: :view do
         :rep_4 => "Rep 4",
         :rep_5 => "Rep 5",
         :rep_6 => "Rep 6",
-        :job_type => "Job Type",
-        :student_level => "Student Level",
         :intvw_1_rep_no => 1,
         :intvw_2_rep_no => 2,
         :clinic_1_rep_no => 3,
@@ -65,8 +61,6 @@ RSpec.describe "companies/index", type: :view do
     assert_select "tr>td", :text => "Rep 4".to_s, :count => 2
     assert_select "tr>td", :text => "Rep 5".to_s, :count => 2
     assert_select "tr>td", :text => "Rep 6".to_s, :count => 2
-    assert_select "tr>td", :text => "Job Type".to_s, :count => 2
-    assert_select "tr>td", :text => "Student Level".to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => 3.to_s, :count => 2

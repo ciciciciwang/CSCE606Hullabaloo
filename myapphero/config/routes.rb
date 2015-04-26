@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :students
   resources :companies
+  resources :students
   resources :timeslots
   resources :appointments
   get 'useradds/new'

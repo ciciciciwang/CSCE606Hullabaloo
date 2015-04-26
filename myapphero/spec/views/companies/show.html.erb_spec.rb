@@ -16,8 +16,6 @@ RSpec.describe "companies/show", type: :view do
       :rep_4 => "Rep 4",
       :rep_5 => "Rep 5",
       :rep_6 => "Rep 6",
-      :job_type => "Job Type",
-      :student_level => "Student Level",
       :intvw_1_rep_no => 1,
       :intvw_2_rep_no => 2,
       :clinic_1_rep_no => 3,
@@ -41,8 +39,6 @@ RSpec.describe "companies/show", type: :view do
     expect(rendered).to match(/Rep 4/)
     expect(rendered).to match(/Rep 5/)
     expect(rendered).to match(/Rep 6/)
-    expect(rendered).to match(/Job Type/)
-    expect(rendered).to match(/Student Level/)
     expect(rendered).to match(/1/)
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3/)

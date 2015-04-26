@@ -14,8 +14,6 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :rep_4
       t.string :rep_5
       t.string :rep_6
-      t.string :job_type
-      t.string :student_level
       t.integer :intvw_1_rep_no
       t.integer :intvw_2_rep_no
       t.integer :clinic_1_rep_no

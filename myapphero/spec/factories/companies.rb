@@ -13,8 +13,6 @@ rep_3 "MyString"
 rep_4 "MyString"
 rep_5 "MyString"
 rep_6 "MyString"
-job_type "MyString"
-student_level "MyString"
 intvw_1_rep_no 1
 intvw_2_rep_no 1
 clinic_1_rep_no 1

@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :att_date %><br>
+    <%= f.label :Attend_Date %><br>
     <%= f.text_field :att_date %>
   </div>
   <div class="field">
-    <%= f.label :section %><br>
-    <%= f.text_field :section %>
+    <%= f.label :Section %><br>
+    <%= f.select :section, options_for_select(["Mock Interview 1", "Mock Interview 2", "Resume Clinic 1", "Resume Clinic 2", "Resume Clinic 3", "Lunch"]) %>
   </div>
   <div class="field">
-    <%= f.label :slot %><br>
+    <%= f.label :Time_Slot %><br>
     <%= f.text_field :slot %>
   </div>
   <div class="field">
-    <%= f.label :stunum %><br>
+    <%= f.label :Student_Number %><br>
     <%= f.number_field :stunum %>
   </div>
   <div class="actions">

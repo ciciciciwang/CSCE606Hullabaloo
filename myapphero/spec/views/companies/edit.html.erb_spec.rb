@@ -16,8 +16,6 @@ RSpec.describe "companies/edit", type: :view do
       :rep_4 => "MyString",
       :rep_5 => "MyString",
       :rep_6 => "MyString",
-      :job_type => "MyString",
-      :student_level => "MyString",
       :intvw_1_rep_no => 1,
       :intvw_2_rep_no => 1,
       :clinic_1_rep_no => 1,
@@ -56,10 +54,6 @@ RSpec.describe "companies/edit", type: :view do
       assert_select "input#company_rep_5[name=?]", "company[rep_5]"
 
       assert_select "input#company_rep_6[name=?]", "company[rep_6]"
-
-      assert_select "input#company_job_type[name=?]", "company[job_type]"
-
-      assert_select "input#company_student_level[name=?]", "company[student_level]"
 
       assert_select "input#company_intvw_1_rep_no[name=?]", "company[intvw_1_rep_no]"
 

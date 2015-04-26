@@ -11,18 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424193536) do
+ActiveRecord::Schema.define(version: 20150426004444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.string   "stu_name"
-    t.string   "UIN"
-    t.string   "stu_email"
     t.string   "section"
     t.string   "time_slot"
     t.string   "company"
+    t.string   "student"
+    t.string   "UIN"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,21 +30,23 @@ ActiveRecord::Schema.define(version: 20150424193536) do
     t.string   "name"
     t.string   "contact_person"
     t.string   "contact_email"
+    t.string   "sponsor_level"
+    t.string   "citizenship"
+    t.string   "job_type"
+    t.string   "student_level"
     t.string   "rep_1"
     t.string   "rep_2"
     t.string   "rep_3"
     t.string   "rep_4"
     t.string   "rep_5"
     t.string   "rep_6"
-    t.string   "student_level"
-    t.string   "job_type"
-    t.integer  "interview1_rep_no"
-    t.integer  "interview2_rep_no"
-    t.integer  "clinic1_rep_no"
-    t.integer  "clinic2_rep_no"
-    t.integer  "clinic3_rep_no"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "intvw_1_rep_no"
+    t.integer  "intvw_2_rep_no"
+    t.integer  "clinic_1_rep_no"
+    t.integer  "clinic_2_rep_no"
+    t.integer  "clinic_3_rep_no"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -65,19 +66,15 @@ ActiveRecord::Schema.define(version: 20150424193536) do
     t.string   "Resume_1"
     t.string   "Resume_2"
     t.string   "Resume_3"
-    t.boolean  "Lunch"
+    t.string   "Lunch"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
-
-  add_index "students", ["UIN"], name: "index_students_on_UIN", unique: true, using: :btree
-  add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
 
   create_table "timeslots", force: :cascade do |t|
     t.string   "att_date"
     t.string   "section"
     t.string   "slot"
-    t.integer  "comnum"
     t.integer  "stunum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

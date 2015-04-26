@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
       redirect_to students_url  
     else  
 
-      #flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
-      flash[:notice] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new' 
       #redirect_to new_session_path  
     end  

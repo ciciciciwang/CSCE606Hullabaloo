@@ -22,8 +22,7 @@ class StudentsController < ApplicationController
     @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
     @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
     @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
-    @lunch, @lunch_slots = set_menu('Lunch')
-    
+    @lunch, @lunch_slots = set_menu('Lunch')    
   end
 
   # GET /students/1/edit
@@ -49,12 +48,24 @@ class StudentsController < ApplicationController
     
     respond_to do |format|
       if @student.save
+        temp1, temp2 = set_menu('Mock Interview 1')
+        Timeslot.decrease_1(temp1, student_params, :Mock_1)
+        temp1, temp2 = set_menu('Mock Interview 2')
+        Timeslot.decrease_1(temp1, student_params, :Mock_2)
         temp1, temp2 = set_menu('Resume Clinic 1')
         Timeslot.decrease_1(temp1, student_params, :Resume_1)
+        temp1, temp2 = set_menu('Resume Clinic 2')
+        Timeslot.decrease_1(temp1, student_params, :Resume_2)
+        emp1, temp2 = set_menu('Resume Clinic 3')
+        Timeslot.decrease_1(temp1, student_params, :Resume_3)
+        temp1, temp2 = set_menu('Lunch')
+        Timeslot.decrease_1(temp1, student_params, :Lunch)
+
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
-        format.html { render :new }
+        flash[:notice] = @student.errors.full_messages
+        format.html { redirect_to new_student_path}#render :new } 
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
@@ -64,16 +75,39 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
+      temp1, temp2 = set_menu('Mock Interview 1')
+      Timeslot.increase_1(temp1, @student.id, 'Mock_1')
+      temp1, temp2 = set_menu('Mock Interview 2')
+      Timeslot.increase_1(temp1, @student.id, 'Mock_1')
       temp1, temp2 = set_menu('Resume Clinic 1')
       Timeslot.increase_1(temp1, @student.id, 'Resume_1')
+      temp1, temp2 = set_menu('Resume Clinic 2')
+      Timeslot.increase_1(temp1, @student.id, 'Resume_2')
+      temp1, temp2 = set_menu('Resume Clinic 3')
+      Timeslot.increase_1(temp1, @student.id, 'Resume_3')
+      temp1, temp2 = set_menu('Lunch')
+      Timeslot.increase_1(temp1, @student.id, 'Lunch')
+
       if @student.update(student_params)
+        temp1, temp2 = set_menu('Mock Interview 1')
+        Timeslot.decrease_1(temp1, student_params, :Mock_1)
+        temp1, temp2 = set_menu('Mock Interview 2')
+        Timeslot.decrease_1(temp1, student_params, :Mock_2)
+        temp1, temp2 = set_menu('Resume Clinic 1')
         Timeslot.decrease_1(temp1, student_params, :Resume_1)
+        temp1, temp2 = set_menu('Resume Clinic 2')
+        Timeslot.decrease_1(temp1, student_params, :Resume_2)
+        temp1, temp2 = set_menu('Resume Clinic 3')
+        Timeslot.decrease_1(temp1, student_params, :Resume_3)
+        temp1, temp2 = set_menu('Lunch')
+        Timeslot.decrease_1(temp1, student_params, :Lunch)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
-        Timeslot.decrease_1(temp1, student_params, :Resume_1)
-        format.html { render :edit }
+        flash[:notice] = @student.errors.full_messages
+        format.html { redirect_to edit_student_path}#render :edit }
         format.json { render json: @student.errors, status: :unprocessable_entity }
+
         raise ActiveRecord::Rollback
       end
     end
@@ -94,13 +128,13 @@ class StudentsController < ApplicationController
 
  
    def set_menu(arg)
-      @result_slots= Timeslot.where("section = ? AND stunum>0", arg).collect{|item| [item.id, item.slot]}
-      @slots = []
+      result_slots= Timeslot.where("section = ? AND stunum>0", arg).collect{|item| [item.id, item.slot, item.stunum]}
+      slots = ['Not Attend']
 
-        @result_slots.each do |item|
-          @slots<<item[1]
+        result_slots.each do |item|
+          slots<<item[1]
         end
-      return @result_slots, @slots
+      return result_slots, slots
     end
 
     # Use callbacks to share common setup or constraints between actions.

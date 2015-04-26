@@ -6,7 +6,6 @@ RSpec.describe "timeslots/new", type: :view do
       :att_date => "MyString",
       :section => "MyString",
       :slot => "MyString",
-      :comnum => 1,
       :stunum => 1
     ))
   end
@@ -21,8 +20,6 @@ RSpec.describe "timeslots/new", type: :view do
       assert_select "input#timeslot_section[name=?]", "timeslot[section]"
 
       assert_select "input#timeslot_slot[name=?]", "timeslot[slot]"
-
-      assert_select "input#timeslot_comnum[name=?]", "timeslot[comnum]"
 
       assert_select "input#timeslot_stunum[name=?]", "timeslot[stunum]"
     end

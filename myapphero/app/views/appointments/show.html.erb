@@ -1,21 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Stu name:</strong>
-  <%= @appointment.stu_name %>
-</p>
-
-<p>
-  <strong>Uin:</strong>
-  <%= @appointment.UIN %>
-</p>
-
-<p>
-  <strong>Stu email:</strong>
-  <%= @appointment.stu_email %>
-</p>
-
-<p>
   <strong>Section:</strong>
   <%= @appointment.section %>
 </p>
@@ -28,6 +13,16 @@
 <p>
   <strong>Company:</strong>
   <%= @appointment.company %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @appointment.student %>
+</p>
+
+<p>
+  <strong>Uin:</strong>
+  <%= @appointment.UIN %>
 </p>
 
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |

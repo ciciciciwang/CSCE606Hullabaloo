@@ -1,3 +1,7 @@
-rails generate scaffold company name:string contact_person:string contact_email:string rep_1:string rep_2:string rep_3:string rep_4:string rep_5:string rep_6:string student_level:string job_type:string interview1_rep_no:integer interview2_rep_no:integer clinic1_rep_no:integer clinic2_rep_no:integer clinic3_rep_no:integer
+rails generate scaffold company name:string contact_person:string contact_email:string sponsor_level:string citizenship:string job_type:string student_level:string rep_1:string rep_2:string rep_3:string rep_4:string rep_5:string rep_6:string job_type:string student_level:string intvw_1_rep_no:integer intvw_2_rep_no:integer clinic_1_rep_no:integer clinic_2_rep_no:integer clinic_3_rep_no:integer 
 
-rails g scaffold timeslot att_date:string section:string slot:string comnum:integer stunum:integer
+rails g scaffold timeslot att_date:string section:string slot:string stunum:integer
+
+rails g scaffold student name:string UIN:string email:string US_Citizen:boolean degree:string position_type:string Mock_1:string Mock_2:string Resume_1:string Resume_2:string Resume_3:string Lunch:string
+
+rails g scaffold appointment section:string time_slot:string company:string student:string UIN:string

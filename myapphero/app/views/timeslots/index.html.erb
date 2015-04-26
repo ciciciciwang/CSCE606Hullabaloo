@@ -5,11 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Attend date</th>
+      <th>Att date</th>
       <th>Section</th>
-      <th>Time Slot</th>
-      <th>Company number</th>
-      <th>Student number</th>
+      <th>Slot</th>
+      <th>Stunum</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +19,6 @@
         <td><%= timeslot.att_date %></td>
         <td><%= timeslot.section %></td>
         <td><%= timeslot.slot %></td>
-        <td><%= timeslot.comnum %></td>
         <td><%= timeslot.stunum %></td>
         <td><%= link_to 'Show', timeslot %></td>
         <td><%= link_to 'Edit', edit_timeslot_path(timeslot) %></td>

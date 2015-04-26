@@ -6,8 +6,7 @@ RSpec.describe "timeslots/show", type: :view do
       :att_date => "Att Date",
       :section => "Section",
       :slot => "Slot",
-      :comnum => 1,
-      :stunum => 2
+      :stunum => 1
     ))
   end
 
@@ -17,6 +16,5 @@ RSpec.describe "timeslots/show", type: :view do
     expect(rendered).to match(/Section/)
     expect(rendered).to match(/Slot/)
     expect(rendered).to match(/1/)
-    expect(rendered).to match(/2/)
   end
 end

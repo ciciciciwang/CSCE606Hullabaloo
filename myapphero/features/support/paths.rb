@@ -26,10 +26,6 @@ module NavigationHelpers
     when /^the edit information page$/i
          edit_student_path(@student)
 
-    when /^the listing students page$/
-        '/students'
-    
-
     else
       begin
         page_name =~ /^the (.*) page$/

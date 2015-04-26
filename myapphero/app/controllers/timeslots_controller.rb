@@ -1,6 +1,7 @@
 class TimeslotsController < ApplicationController
   before_action :set_timeslot, only: [:show, :edit, :update, :destroy]
-
+ #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
+  before_filter :authorize, only: [:index, :destroy, :new, :show], :except => :new_session_path
   # GET /timeslots
   # GET /timeslots.json
   def index
@@ -69,6 +70,6 @@ class TimeslotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeslot_params
-      params.require(:timeslot).permit(:att_date, :section, :slot, :comnum, :stunum)
+      params.require(:timeslot).permit(:att_date, :section, :slot, :stunum)
     end
 end

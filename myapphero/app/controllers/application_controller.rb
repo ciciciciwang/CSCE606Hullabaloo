@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   def authorize
   	unless session[:useradd_id]
-  		flash[:notice] = "Please log in"
+  		flash[:danger] = "Please log in"
   		redirect_to new_session_path
   	end
 

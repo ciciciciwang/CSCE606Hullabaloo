@@ -3,7 +3,6 @@ FactoryGirl.define do
     att_date "MyString"
 section "MyString"
 slot "MyString"
-comnum 1
 stunum 1
   end
 

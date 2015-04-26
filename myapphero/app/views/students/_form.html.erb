@@ -1,5 +1,5 @@
 <%= form_for(@student) do |f| %>
-   <% if @student.errors.any? %>
+  <% if @student.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
@@ -31,11 +31,11 @@
     <%= f.label :degree %><br>
     <%= f.select :degree, options_for_select(%w[B.S. M.S. PH.D]) %>
   </div>
-  <div class="field">
+  
+ <div class="field">
     <%= f.label :position_type %><br>
     <%= f.select :position_type, options_for_select(%w[Internship Full-time]) %>
   </div>
-
   <div class="field">
     <%= f.label :Mock_Interview_1  %><br>
     <%= f.select :Mock_1, options_for_select(@mock_1_slots), :prompt=>"Please select time for Mock Interview 1 on...." %>
@@ -65,8 +65,6 @@
     <%= f.label :Lunch  %><br>
     <%= f.select :Lunch, options_for_select(@lunch_slots), :prompt=>"Please select time for Lunch on...." %>
   </div>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>

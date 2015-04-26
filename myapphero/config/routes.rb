@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :timeslots
-  resources :appointments
   resources :students
   resources :companies
+  resources :timeslots
+  resources :appointments
   get 'useradds/new'
 
-  resources :users
   resources :useradds
   resources :sessions
   get 'login' => 'sessions#new'

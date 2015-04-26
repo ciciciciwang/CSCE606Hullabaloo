@@ -1,11 +1,10 @@
 FactoryGirl.define do
   factory :appointment do
-    stu_name ""
-UIN ""
-stu_email ""
-section ""
-time_slot ""
+    section "MyString"
+time_slot "MyString"
 company "MyString"
+student "MyString"
+UIN "MyString"
   end
 
 end

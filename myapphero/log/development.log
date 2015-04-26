@@ -18681,3 +18681,56 @@ Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b9
 
 
 Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-25 20:35:02 -0500
+
+
+Started GET "/" for ::1 at 2015-04-26 15:03:32 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (9.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 529ms (Views: 517.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/companies/" for ::1 at 2015-04-26 15:03:33 -0500
+Processing by CompaniesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2015-04-26 15:03:33 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 87ms (Views: 86.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-26 15:03:33 -0500

@@ -64,8 +64,8 @@ class AppointmentsController < ApplicationController
   helper_method :generate
 
   def generate
-    matchappoint('10:20am-10:40am', 'Mock_1', 'Platinum') 
-    redirect_to students_url, notice: 'Appointment was successfully destroyed.' 
+    matchappoint('11:30am-12:30am', 'Mock_1', 'Platinum') 
+    redirect_to appointments_url, notice: 'Appointment was successfully generated.' 
   end
 ################################################################ 
   private
@@ -86,28 +86,43 @@ class AppointmentsController < ApplicationController
     end
 =end
     def matchappoint(arg, mock, level) 
+      case mock
+	when "Mock_1"
+	selforcom="intvw_1_rep_no"
+	when "Mock_2"
+	selforcom="intvw_2_rep_no"
+	when "Resume_1"
+	selforcom="clinic_1_rep_no"
+	when "Resume_2"
+	selforcom="clinic_2_rep_no"
+	when "Resume_3"
+	selforcom="clinic_3_rep_no"
+	
+	else
+	selforcom="intvw_1_rep_no"
+	end
+      company = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", level).collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
       
-      company = Company.where("sponsor_level = ? AND intvw_1_rep_no > 0 ", level).collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.intvw_1_rep_no]}
-
-
       student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-      # #matchnum = company.
+
+      #student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+      
       student.each do |student|
        company.each do |item|
-          # if (item.intvw_1_rep_no > 0 && item.jobtype == student.position_type && 
-      #       # item.student_level == student.degree && item.citizenship == US_Citizen)
-
+	    usif= item[3]=="US Citizen Only"? true:false
+	    if (item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])
             appointment = Appointment.new
-            getone = student.last
-            student.pop
+            getone = student
+            #student.pop
             appointment.section = mock
             appointment.time_slot = getone[5]
-            appointment.company = item[1]
+            appointment.company = item[0]
             appointment.student = getone[1]
             appointment.UIN = student[0]
             item[4]-=1
             appointment.save
-      #     # end
+	    break
+            end
         end
       end
     end

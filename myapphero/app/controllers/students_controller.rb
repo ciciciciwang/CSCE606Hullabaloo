@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
 
   # GET /students
   # GET /students.json
+
   def index
     @students = Student.all
   end
@@ -13,9 +14,8 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    if log_in? || @student.id == stored_id
-      
-    else
+   
+    unless log_in? || cus_indentify(get_id)
       flash[:danger] = "Please Log in!"
       redirect_to new_session_path
     end
@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    set_session(@student.id)
+    
     @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
     @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
     @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    if log_in? || @student.id == stored_id
+    if log_in? || cus_indentify(get_id)
       @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
       @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
       @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
@@ -52,9 +52,10 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
     respond_to do |format|
       if @student.save
+        input_session(@student.id)
+
         temp1, temp2 = set_menu('Mock Interview 1')
         Timeslot.decrease_1(temp1, student_params, :Mock_1)
         temp1, temp2 = set_menu('Mock Interview 2')
@@ -140,14 +141,6 @@ class StudentsController < ApplicationController
   end
 
   private
- 
-    def set_session(arg)
-      @stored_id = arg
-    end
-
-    def stored_id
-      @stored_id
-    end
     
     def set_menu(arg)
       result_slots= Timeslot.where("section = ? AND stunum>0", arg).collect{|item| [item.id, item.slot]}
@@ -160,6 +153,10 @@ class StudentsController < ApplicationController
     end
 
     # Use callbacks to share common setup or constraints between actions.
+    def get_id
+      params[:id]
+    end
+
     def set_student
       @student = Student.find(params[:id])
     end

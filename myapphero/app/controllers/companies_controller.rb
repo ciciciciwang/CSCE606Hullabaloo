@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
 #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
-  before_filter :authorize, only: [:index, :destroy], :except => :new_session_path
+  before_filter :authorize, only: [:destroy, :index], :except => :new_session_path
   # GET /companies
   # GET /companies.json
   def index
@@ -12,6 +12,10 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    unless log_in? || cus_indentify(get_id)
+      flash[:danger] = "Please Log in!"
+      redirect_to new_session_path
+    end
   end
 
   # GET /companies/new
@@ -21,6 +25,10 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    unless log_in? || cus_indentify(get_id)
+      flash[:danger] = "Please Log in!"
+      redirect_to new_session_path
+    end
   end
 
   # POST /companies
@@ -30,6 +38,8 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
+        input_session(@company.id)
+
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
@@ -65,6 +75,11 @@ class CompaniesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def get_id
+      params[:id]
+    end
+    
     def set_company
       @company = Company.find(params[:id])
     end

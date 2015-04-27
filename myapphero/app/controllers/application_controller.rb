@@ -13,4 +13,19 @@ class ApplicationController < ActionController::Base
   def log_in?
   	session[:useradd_id]
   end
+
+  def input_session(arg)
+      session[:stu_id] = arg
+    end
+
+  def cus_indentify(arg)
+      puts 'afasgagagasg'
+    puts session[:stu_id]
+    puts'\n'
+    puts'\n'
+    puts'\n'
+    puts'\n'
+    puts'\n'
+      session[:stu_id].to_s==arg
+  end
 end

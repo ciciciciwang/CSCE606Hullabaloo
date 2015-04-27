@@ -85,7 +85,7 @@ class StudentsController < ApplicationController
       temp1, temp2 = set_menu('Mock Interview 1')
       Timeslot.increase_1(temp1, @student.id, 'Mock_1')
       temp1, temp2 = set_menu('Mock Interview 2')
-      Timeslot.increase_1(temp1, @student.id, 'Mock_1')
+      Timeslot.increase_1(temp1, @student.id, 'Mock_2')
       temp1, temp2 = set_menu('Resume Clinic 1')
       Timeslot.increase_1(temp1, @student.id, 'Resume_1')
       temp1, temp2 = set_menu('Resume Clinic 2')

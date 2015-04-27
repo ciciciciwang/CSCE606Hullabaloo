@@ -1,7 +1,8 @@
 class TimeslotsController < ApplicationController
   before_action :set_timeslot, only: [:show, :edit, :update, :destroy]
  #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
-  before_filter :authorize, only: [:index, :destroy, :new, :show], :except => :new_session_path
+  before_action :require_login
+
   # GET /timeslots
   # GET /timeslots.json
   def index
@@ -63,6 +64,13 @@ class TimeslotsController < ApplicationController
   end
 
   private
+
+    def require_login
+      unless authorize
+        flash[:danger] = "Please Log in!"
+        redirect_to new_session_path
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_timeslot
       @timeslot = Timeslot.find(params[:id])

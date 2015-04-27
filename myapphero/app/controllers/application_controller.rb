@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   		flash[:danger] = "Please log in"
   		redirect_to new_session_path
   	end
+  end
 
-end
+  def log_in?
+  	session[:useradd_id]
+  end
 end

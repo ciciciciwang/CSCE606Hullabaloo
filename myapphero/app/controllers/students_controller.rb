@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
-  before_filter :authorize, only: [:index, :destroy], :except => :new_session_path
+  before_filter :authorize, only: [:destroy, :index], :except => :new_session_path
 
   # GET /students
   # GET /students.json
@@ -13,11 +13,18 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    if log_in? || @student.id == stored_id
+      
+    else
+      flash[:danger] = "Please Log in!"
+      redirect_to new_session_path
+    end
   end
 
   # GET /students/new
   def new
     @student = Student.new
+    set_session(@student.id)
     @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
     @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
     @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
@@ -28,12 +35,17 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
-    @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
-    @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
-    @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
-    @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
-    @lunch, @lunch_slots = set_menu('Lunch')
+    if log_in? || @student.id == stored_id
+      @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
+      @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
+      @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
+      @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
+      @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
+      @lunch, @lunch_slots = set_menu('Lunch')
+    else
+      flash[:danger] = "Please Log in!"
+      redirect_to new_session_path
+    end
   end
 
   # POST /students
@@ -128,7 +140,15 @@ class StudentsController < ApplicationController
   end
 
   private
+ 
+    def set_session(arg)
+      @stored_id = arg
+    end
 
+    def stored_id
+      @stored_id
+    end
+    
     def set_menu(arg)
       result_slots= Timeslot.where("section = ? AND stunum>0", arg).collect{|item| [item.id, item.slot]}
       slots = ['Not Attend']

@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  
-  before_filter :authorize, only: [:index, :destroy, :new, :show], :except => :new_session_path
+
   # GET /appointments
   # GET /appointments.json
   def index
@@ -66,8 +65,11 @@ class AppointmentsController < ApplicationController
 
   def generate
     matchappoint('11:30am-12:30am', 'Mock_1', 'Platinum') 
+    matchappoint('11:30am-12:30am', 'Mock_2', 'Platinum') 
     redirect_to appointments_url, notice: 'Appointment was successfully generated.' 
   end
+
+
 ################################################################ 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -87,15 +89,43 @@ class AppointmentsController < ApplicationController
     end
 =end
     def matchappoint(arg, mock, level) 
+      case mock
+	when "Mock_1"
+	selforcom="intvw_1_rep_no"
+	when "Mock_2"
+	selforcom="intvw_2_rep_no"
+	when "Resume_1"
+	selforcom="clinic_1_rep_no"
+	when "Resume_2"
+	selforcom="clinic_2_rep_no"
+	when "Resume_3"
+	selforcom="clinic_3_rep_no"	
+	else
+	selforcom="intvw_1_rep_no"
+     end
+
+      company = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", level).collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
       
-      company = Company.where("sponsor_level = ? AND intvw_1_rep_no > 0 ", level).collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.intvw_1_rep_no]}
+      case mock
+	when "Mock_1"
+	student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Mock_2"
+	student =  Student.where(Mock_2: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Resume_1"
+	student =  Student.where(Resume_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Resume_2"
+	student =  Student.where(Resume_2: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Resume_3"
+	student =  Student.where(Resume_3: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	
+	else
+	student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+     end
 
-
-      student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+      #student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
       
       student.each do |student|
        company.each do |item|
-           #if (item.intvw_1_rep_no > 0 && item.jobtype == student.position_type && item.student_level == student.degree && item.citizenship == student.US_Citizen)
 	    usif= item[3]=="US Citizen Only"? true:false
 	    if (item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])
             appointment = Appointment.new

@@ -2,10 +2,11 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
-  before_filter :authorize, only: [:index, :destroy], :except => :new_session_path
+  before_filter :authorize, only: [:destroy, :index], :except => :new_session_path
 
   # GET /students
   # GET /students.json
+
   def index
     @students = Student.all
   end
@@ -13,11 +14,17 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+   
+    unless log_in? || cus_indentify(get_id)
+      flash[:danger] = "Please Log in!"
+      redirect_to new_session_path
+    end
   end
 
   # GET /students/new
   def new
     @student = Student.new
+    
     @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
     @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
     @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
@@ -28,21 +35,27 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
-    @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
-    @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
-    @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
-    @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
-    @lunch, @lunch_slots = set_menu('Lunch')
+    if log_in? || cus_indentify(get_id)
+      @mock_1, @mock_1_slots = set_menu('Mock Interview 1')
+      @mock_2, @mock_2_slots = set_menu('Mock Interview 2')
+      @resume_1, @resume_1_slots = set_menu('Resume Clinic 1')
+      @resume_2, @resume_2_slots = set_menu('Resume Clinic 2')
+      @resume_3, @resume_3_slots = set_menu('Resume Clinic 3')
+      @lunch, @lunch_slots = set_menu('Lunch')
+    else
+      flash[:danger] = "Please Log in!"
+      redirect_to new_session_path
+    end
   end
 
   # POST /students
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
     respond_to do |format|
       if @student.save
+        input_session(@student.id)
+
         temp1, temp2 = set_menu('Mock Interview 1')
         Timeslot.decrease_1(temp1, student_params, :Mock_1)
         temp1, temp2 = set_menu('Mock Interview 2')
@@ -128,7 +141,7 @@ class StudentsController < ApplicationController
   end
 
   private
-
+    
     def set_menu(arg)
       result_slots= Timeslot.where("section = ? AND stunum>0", arg).collect{|item| [item.id, item.slot]}
       slots = ['Not Attend']
@@ -140,6 +153,10 @@ class StudentsController < ApplicationController
     end
 
     # Use callbacks to share common setup or constraints between actions.
+    def get_id
+      params[:id]
+    end
+
     def set_student
       @student = Student.find(params[:id])
     end

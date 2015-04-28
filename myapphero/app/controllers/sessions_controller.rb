@@ -1,14 +1,19 @@
 class SessionsController < ApplicationController  
   def new  
   end  
+
+  def index
     
+
+  end
+
   def create  
     useradd = Useradd.find_by(email: params[:session][:email].downcase)  
 
     if useradd && useradd.authenticate(params[:session][:password])
       session[:useradd_id] = useradd.id       
       flash[:notice] = "Weclome administrator : #{useradd.name}"  
-      redirect_to students_url  
+      redirect_to sessions_url  
     else  
 
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!

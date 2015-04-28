@@ -147,8 +147,13 @@ end
 
 ##############################################################
 def matchappointwithout(arg, mock, company)
-      stuuin=[];        
-    while @student.length > 0 do
+      stuuin=[];
+      totalrep = 0;        
+    company.each { |com| totalrep+=com[4]}
+    puts 'print all all the remain rep number'
+    print totalrep
+    puts ' '
+    while @student.length > 0 && totalrep> 0 do
       @student.each do |student|
        company.each do |item|
           if item[4] > 0 
@@ -161,6 +166,7 @@ def matchappointwithout(arg, mock, company)
             appointment.UIN = student[0]
 	    stuuin = stuuin << getone[0]
             item[4]-=1
+	    totalrep-=1
             appointment.save
 	         break  
           end        
@@ -178,9 +184,15 @@ end
       stuuin=[]; 
       @student.each do |student|
        company.each do |item|
-###############################添加一下for any的情况
+###############################添加一下for any的情况###############
+#	@student =  Student.where(Resume_3: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+#
+#
+#   @companysilver = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Silver').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
+###################################################################
+
 	    usif= item[3]=="US Citizen Only"? true:false
-	    if (item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])
+	    if ((item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])||(item[4] > 0 && )
 	    getone = student
 	   
             appointment = Appointment.new

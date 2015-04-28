@@ -36988,3 +36988,562 @@ Processing by CompaniesController#new as HTML
   Rendered companies/_form.html.erb (11.9ms)
   Rendered companies/new.html.erb within layouts/application (13.8ms)
 Completed 200 OK in 95ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 12:38:14 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (22.0ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (1.4ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 17:38:14.242966"], ["updated_at", "2015-04-28 17:38:14.242966"]]
+  [1m[36m (25.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 17:38:14.271939"], ["updated_at", "2015-04-28 17:38:14.271939"]]
+  [1m[35m (40.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 17:38:14.316702"], ["updated_at", "2015-04-28 17:38:14.316702"]]
+  [1m[36m (17.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 17:38:14.337717"], ["updated_at", "2015-04-28 17:38:14.337717"]]
+  [1m[35m (119.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 303ms (ActiveRecord: 239.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 12:38:14 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 74ms (Views: 72.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/appointments/91" for 127.0.0.1 at 2015-04-28 12:38:24 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HWWHzazdBaNGioTRMqIzOx8BFmIadM5cPIqfF/24Mq6pe84xBj05tZIFiN9ZBSBh4qu6wAniVG7dlPXlVyTIlA==", "id"=>"91"}
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 91]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 91]]
+  [1m[36m (16.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 21ms (ActiveRecord: 16.9ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 12:38:24 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 84ms (Views: 83.0ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/appointments/94" for 127.0.0.1 at 2015-04-28 12:38:27 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PtjIQYOGdUmsOX0nArzcedKNeOxze6UqlFoJGqXwF6SKxoG9KWZJX3i2cSlpG88jLyfUTmDtPxh1RGPoD2ztng==", "id"=>"94"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 94]]
+  [1m[35m (15.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 19ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 12:38:27 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/appointments/93" for 127.0.0.1 at 2015-04-28 12:38:28 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"L/uOx39qo5emmOe9tgv3H9WR50BzeaT5BnqESo4BR1qb5cc71YqfgXIX67PdrORFKDtL4mDvPsvnZO64JJ29YA==", "id"=>"93"}
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 93]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 93]]
+  [1m[36m (35.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 40ms (ActiveRecord: 36.5ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 12:38:29 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/appointments/92" for 127.0.0.1 at 2015-04-28 12:38:30 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qp+DHVa3mfDIX0mk2PAvX1QKy+LH+iAP7vRkVShKiu4egcrh/Fel5hzQRaqzVzwFqaBnQNRsuj0P6g6ngtZw1A==", "id"=>"92"}
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 92]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 92]]
+  [1m[35m (70.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 74ms (ActiveRecord: 71.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 12:38:30 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 89ms (Views: 87.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 12:39:06 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.8ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 17:39:06.815876"], ["updated_at", "2015-04-28 17:39:06.815876"]]
+  [1m[36m (23.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 17:39:06.843168"], ["updated_at", "2015-04-28 17:39:06.843168"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 17:39:06.854495"], ["updated_at", "2015-04-28 17:39:06.854495"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 17:39:06.865221"], ["updated_at", "2015-04-28 17:39:06.865221"]]
+  [1m[35m (6.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 71ms (ActiveRecord: 48.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 12:39:06 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.6ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 78ms (Views: 76.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/appointments/new" for 127.0.0.1 at 2015-04-28 12:40:29 -0500
+Processing by AppointmentsController#new as HTML
+  Rendered appointments/_form.html.erb (3.3ms)
+  Rendered appointments/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 107ms (Views: 105.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2015-04-28 12:43:15 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (4.0ms)
+  Rendered students/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 82ms (Views: 62.7ms | ActiveRecord: 4.9ms)
+
+
+Started DELETE "/appointments/95" for 127.0.0.1 at 2015-04-28 13:38:39 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"egq8G3OoGaasZm7MteAKPaOMkCSPXo0mVa+93kJm957OFPXn2UglsHjpYsLeRxlnXiY8hpzIFxS0sdcs6PoNpA==", "id"=>"95"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 95]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 95]]
+  [1m[36m (76.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 93ms (ActiveRecord: 79.9ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:38:39 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/appointments/96" for 127.0.0.1 at 2015-04-28 13:38:41 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9c+DtI/qBHzPQTRZ9OM6wFIZF/AQaK/vrMk3CHGCm7BB0cpIJQo4ahvOOFefRCmar7O7UgP+Nd1N11362x5hig==", "id"=>"96"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 96]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 96]]
+  [1m[35m (19.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 26ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:38:41 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (1.1ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 92ms (Views: 90.4ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/appointments/97" for 127.0.0.1 at 2015-04-28 13:38:44 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nUj1bGuKPZ7lDI5+lw5FnC2/CRwUjiwkZhpBy8/fEVMpVryQwWoBiDGDgnD8qVbG0BWlvgcYthaHBCs5ZUPraQ==", "id"=>"97"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 97]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 97]]
+  [1m[36m (19.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 23ms (ActiveRecord: 20.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:38:44 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.8ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 97ms (Views: 95.7ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/appointments/98" for 127.0.0.1 at 2015-04-28 13:38:47 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ljvhVFa/fLgLICCRa/oWfZxQS5283cn02M5XTJw5dpoiJaio/F9Art+vLJ8AXQUnYfrnP69LU8Y50D2+NqWMoA==", "id"=>"98"}
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 98]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 98]]
+  [1m[35m (200.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 204ms (ActiveRecord: 201.2ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:38:47 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:38:48 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:38:48.976365"], ["updated_at", "2015-04-28 18:38:48.976365"]]
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:38:48.988269"], ["updated_at", "2015-04-28 18:38:48.988269"]]
+  [1m[35m (8.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:38:48.999922"], ["updated_at", "2015-04-28 18:38:48.999922"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:38:49.010616"], ["updated_at", "2015-04-28 18:38:49.010616"]]
+  [1m[35m (7.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 98ms (ActiveRecord: 38.6ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:38:49 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:40:01 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (16.5ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (1.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:40:01.796008"], ["updated_at", "2015-04-28 18:40:01.796008"]]
+  [1m[36m (58.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:40:01.857151"], ["updated_at", "2015-04-28 18:40:01.857151"]]
+  [1m[35m (107.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:40:01.967986"], ["updated_at", "2015-04-28 18:40:01.967986"]]
+  [1m[36m (40.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:40:02.013086"], ["updated_at", "2015-04-28 18:40:02.013086"]]
+  [1m[35m (28.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 330ms (ActiveRecord: 263.6ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:40:02 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 76ms (Views: 74.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:40:26 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (35.6ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:40:27.032607"], ["updated_at", "2015-04-28 18:40:27.032607"]]
+  [1m[36m (13.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:40:27.048189"], ["updated_at", "2015-04-28 18:40:27.048189"]]
+  [1m[35m (8.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:40:27.059272"], ["updated_at", "2015-04-28 18:40:27.059272"]]
+  [1m[36m (8.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:40:27.070711"], ["updated_at", "2015-04-28 18:40:27.070711"]]
+  [1m[35m (51.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 140ms (ActiveRecord: 120.7ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:40:27 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:40:29 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (29.7ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (1.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:40:29.374488"], ["updated_at", "2015-04-28 18:40:29.374488"]]
+  [1m[36m (9.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:40:29.388209"], ["updated_at", "2015-04-28 18:40:29.388209"]]
+  [1m[35m (7.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:40:29.399409"], ["updated_at", "2015-04-28 18:40:29.399409"]]
+  [1m[36m (7.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:40:29.410136"], ["updated_at", "2015-04-28 18:40:29.410136"]]
+  [1m[35m (6.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 89ms (ActiveRecord: 65.4ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:40:29 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 71ms (Views: 70.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:40:29 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (47.0ms)[0m  DELETE FROM "appointments"
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.7ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:40:29.993204"], ["updated_at", "2015-04-28 18:40:29.993204"]]
+  [1m[36m (12.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:40:30.009735"], ["updated_at", "2015-04-28 18:40:30.009735"]]
+  [1m[35m (53.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:40:30.067745"], ["updated_at", "2015-04-28 18:40:30.067745"]]
+  [1m[36m (27.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:40:30.098742"], ["updated_at", "2015-04-28 18:40:30.098742"]]
+  [1m[35m (54.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 220ms (ActiveRecord: 199.6ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:40:30 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (93.1ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mStudent Load (0.5ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "11:30am-12:30am"]]
+  [1m[36mCompany Load (1.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.7ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:40:30.263112"], ["updated_at", "2015-04-28 18:40:30.263112"]]
+  [1m[35m (47.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:40:30.313223"], ["updated_at", "2015-04-28 18:40:30.313223"]]
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:40:30.353258"], ["updated_at", "2015-04-28 18:40:30.353258"]]
+  [1m[35m (51.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:40:30.408211"], ["updated_at", "2015-04-28 18:40:30.408211"]]
+  [1m[36m (62.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 313ms (ActiveRecord: 294.8ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:40:30 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 61ms (Views: 60.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 13:40:30 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (30.3ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "11:30am-12:30am"]]
+  [1m[36mCompany Load (0.9ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.9ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 18:40:31.047944"], ["updated_at", "2015-04-28 18:40:31.047944"]]
+  [1m[35m (12.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 18:40:31.062280"], ["updated_at", "2015-04-28 18:40:31.062280"]]
+  [1m[36m (7.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 18:40:31.073602"], ["updated_at", "2015-04-28 18:40:31.073602"]]
+  [1m[35m (7.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 18:40:31.083915"], ["updated_at", "2015-04-28 18:40:31.083915"]]
+  [1m[36m (8.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 100ms (ActiveRecord: 69.5ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:40:31 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 90ms (Views: 88.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/appointments/123" for 127.0.0.1 at 2015-04-28 13:41:11 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kZGpVJR27tffryZR1a4iOIUtPOM853E223ivF7In6K4lj+CoPpbSwQsgKl++CTFieIeQQS9x6wQ6ZsXlGLsSlA==", "id"=>"123"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 123]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 123]]
+  [1m[35m (24.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 32ms (ActiveRecord: 26.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:41:11 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.7ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 118ms (Views: 114.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/appointments/124" for 127.0.0.1 at 2015-04-28 13:41:13 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"N4kycXL9foFTVWQ6W/OdKA/VnKHAJa3s+j3ko0b/DKSDl3uN2B1Cl4faaDQwVI5y8n8wA9OzN94bI45R7GP2ng==", "id"=>"124"}
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 124]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 124]]
+  [1m[36m (26.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 31ms (ActiveRecord: 27.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:41:14 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 147ms (Views: 145.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/appointments/125" for 127.0.0.1 at 2015-04-28 13:41:17 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C/JSFzJZ4qyjU5FCKKz/fAZnJUE4Dhq3H+mOXSmfjNC/7BvrmLneunfcnUxDC+wm+82J4yuYgIX+9+SvgwN26g==", "id"=>"125"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 125]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 125]]
+  [1m[35m (14.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 19ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:41:17 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 109ms (Views: 107.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/appointments/126" for 127.0.0.1 at 2015-04-28 13:41:19 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JH1JlTayr5sFWV6GcmTRDW2pPnGggsM9IoqhAoCcRDSQYwBpnFKTjdHWUogZw8JXkAOS07MUWQ/DlMvwKgC+Dg==", "id"=>"126"}
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 126]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 126]]
+  [1m[36m (21.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 24ms (ActiveRecord: 21.7ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 13:41:19 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 89ms (Views: 88.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 14:04:30 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "11:30am-12:30am"]]
+  [1m[36mCompany Load (1.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (1.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 19:04:30.599126"], ["updated_at", "2015-04-28 19:04:30.599126"]]
+  [1m[35m (41.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 19:04:30.644348"], ["updated_at", "2015-04-28 19:04:30.644348"]]
+  [1m[36m (20.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 19:04:30.666940"], ["updated_at", "2015-04-28 19:04:30.666940"]]
+  [1m[35m (20.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 19:04:30.689051"], ["updated_at", "2015-04-28 19:04:30.689051"]]
+  [1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 141ms (ActiveRecord: 118.8ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 14:04:30 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.7ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 57ms (Views: 55.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 14:04:44 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (30.0ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mStudent Load (0.6ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "11:30am-12:30am"]]
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-28 19:04:44.923020"], ["updated_at", "2015-04-28 19:04:44.923020"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dog"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-28 19:04:44.932744"], ["updated_at", "2015-04-28 19:04:44.932744"]]
+  [1m[36m (7.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-28 19:04:44.944512"], ["updated_at", "2015-04-28 19:04:44.944512"]]
+  [1m[35m (5.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsa"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-28 19:04:44.955398"], ["updated_at", "2015-04-28 19:04:44.955398"]]
+  [1m[36m (5.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 88ms (ActiveRecord: 59.7ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 14:04:44 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.6ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 86ms (Views: 83.7ms | ActiveRecord: 0.6ms)

@@ -64,8 +64,7 @@ class AppointmentsController < ApplicationController
   helper_method :generate
 
   def generate
-    matchappoint('11:30am-12:30am', 'Mock_1', 'Platinum') 
-    matchappoint('11:30am-12:30am', 'Mock_2', 'Platinum') 
+    matchapp('11:30am-12:30am','Mock_1')
     redirect_to appointments_url, notice: 'Appointment was successfully generated.' 
   end
 
@@ -82,69 +81,124 @@ class AppointmentsController < ApplicationController
       params.require(:appointment).permit(:section, :time_slot, :company, :student, :UIN)
     end
 
-##############################################################
-=begin
-    def matchapp()
-        matchappoint('9:30 - 9:50', 'Mock_1','apltinum')
+###############################################################
+
+    def matchapp(arg, mock)
+    Appointment.delete_all
+	@student
+case mock
+	when "Mock_1"
+	@student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Mock_2"
+	@student =  Student.where(Mock_2: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Resume_1"
+	@student =  Student.where(Resume_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Resume_2"
+	@student =  Student.where(Resume_2: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	when "Resume_3"
+	@student =  Student.where(Resume_3: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+	else
+	@student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
+end
+
+case mock
+    when "Mock_1"
+    selforcom="intvw_1_rep_no"
+    when "Mock_2"
+    selforcom="intvw_2_rep_no"
+    when "Resume_1"
+    selforcom="clinic_1_rep_no"
+    when "Resume_2"
+    selforcom="clinic_2_rep_no"
+    when "Resume_3"
+    selforcom="clinic_3_rep_no" 
+    else
+    selforcom="intvw_1_rep_no"
+end
+
+    @companyplat = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Platinum').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
+    @companygold = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Gold').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
+    @companysilver = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Silver').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
+    if @companyplat.length>0
+    	matchappoint(arg, mock, @companyplat) 
     end
-=end
-    def matchappoint(arg, mock, level) 
-      case mock
-	when "Mock_1"
-	selforcom="intvw_1_rep_no"
-	when "Mock_2"
-	selforcom="intvw_2_rep_no"
-	when "Resume_1"
-	selforcom="clinic_1_rep_no"
-	when "Resume_2"
-	selforcom="clinic_2_rep_no"
-	when "Resume_3"
-	selforcom="clinic_3_rep_no"	
-	else
-	selforcom="intvw_1_rep_no"
-     end
 
-      company = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", level).collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
-      
-      case mock
-	when "Mock_1"
-	student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-	when "Mock_2"
-	student =  Student.where(Mock_2: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-	when "Resume_1"
-	student =  Student.where(Resume_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-	when "Resume_2"
-	student =  Student.where(Resume_2: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-	when "Resume_3"
-	student =  Student.where(Resume_3: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-	
-	else
-	student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-     end
+    if @companygold.length>0	
+   matchappoint(arg, mock, @companygold)
+    end
 
-      #student =  Student.where(Mock_1: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-      
-      student.each do |student|
+    if @companysilver.length>0
+    matchappoint(arg, mock, @companysilver)
+    end
+
+    @comremain = @companyplat + @companygold + @companysilver 
+#    puts 'this is the remain company information'
+#    print @comremain
+    @comremain.delete_if{|x| x[4]<=0}
+#    puts 'remain company information have people'
+#    print @comremain
+    if @comremain.length>0  
+    matchappointwithout(arg, mock, @comremain)   
+    end
+     
+
+    end
+
+
+##############################################################
+def matchappointwithout(arg, mock, company)
+      stuuin=[];        
+    while @student.length > 0 do
+      @student.each do |student|
        company.each do |item|
-	    usif= item[3]=="US Citizen Only"? true:false
-	    if (item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])
+          if item[4] > 0 
             appointment = Appointment.new
-            getone = student
-            #student.pop
+            getone = student	    
             appointment.section = mock
             appointment.time_slot = getone[5]
             appointment.company = item[0]
             appointment.student = getone[1]
             appointment.UIN = student[0]
+	    stuuin = stuuin << getone[0]
             item[4]-=1
+            appointment.save
+	         break  
+          end        
+        end
+      end
+	stuuin.each do |uin|
+       @student.delete_if {|x| x[0]==uin}
+	end
+    end
+end
+
+
+###############################################################
+    def matchappoint(arg, mock, company)
+      stuuin=[]; 
+      @student.each do |student|
+       company.each do |item|
+###############################添加一下for any的情况
+	    usif= item[3]=="US Citizen Only"? true:false
+	    if (item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])
+	    getone = student
+	   
+            appointment = Appointment.new
+            appointment.section = mock
+            appointment.time_slot = getone[5]
+            appointment.company = item[0]
+            appointment.student = getone[1]
+            appointment.UIN = getone[0]
+            stuuin = stuuin << getone[0]
+	    item[4]-=1
             appointment.save
 	    break
             end
         end
       end
+	stuuin.each do |uin|
+       @student.delete_if {|x| x[0]==uin}
+	end
     end
-
-
-    
-################################################################
+  ################################################################
 end

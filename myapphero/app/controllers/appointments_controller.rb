@@ -64,9 +64,29 @@ class AppointmentsController < ApplicationController
   helper_method :generate
 
   def generate
-    matchapp('11:30am-12:30am','Mock_1')
-    redirect_to appointments_url, notice: 'Appointment was successfully generated.' 
-  end
+    @studentfinish = []
+    Appointment.delete_all
+    #matchapp('11:30am-12:30am','Mock_1')
+    matchappsection('Mock Interview 1')
+    matchappsection('Mock Interview 2')
+    matchappsection('Resume Clinic 1')
+    matchappsection('Resume Clinic 2')
+    matchappsection('Resume Clinic 3')
+    flag = 0
+    puts 'check if all student finish'
+    print @studentfinish
+    @studentfinish.each do |x|
+	if x == true
+	flag = 1; 
+    	
+	end
+    end
+    if flag == 0
+    	redirect_to appointments_url, notice: 'Appointment was successfully generated.'
+    else 
+    	redirect_to appointments_url, notice: 'Appointment was successfully generated, however lack of company, some student failed, check your company status' 
+    end 
+ end
 
 
 ################################################################ 
@@ -82,9 +102,37 @@ class AppointmentsController < ApplicationController
     end
 
 ###############################################################
+    def matchappsection(mock)
+	
+	case mock 
+		when "Mock Interview 1"
+			mockselect = 'Mock_1' 
+		when "Mock Interview 2"
+			mockselect = 'Mock_2' 
+		when "Resume Clinic 1"
+			mockselect = 'Resume_1' 
+		when "Resume Clinic 2"
+			mockselect = 'Resume_2' 
+		when "Resume Clinic 3"
+			mockselect = 'Resume_3' 
+		else
+	end
+	slot = Timeslot.where("section= ?", "#{mock}").collect {|x| x.slot}
+	puts 'print time slot'
+	puts slot
+	slot.each do |arg|
+		puts 'current select'
+		puts arg
+		puts ' '
+		matchapp(arg, mockselect)
+		#matchapp('11:30am-12:30am', mockselect)
+	end
+    end
 
+
+###############################################################
     def matchapp(arg, mock)
-    Appointment.delete_all
+    
 	@student
 case mock
 	when "Mock_1"
@@ -119,16 +167,18 @@ end
     @companyplat = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Platinum').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
     @companygold = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Gold').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
     @companysilver = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Silver').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
-    if @companyplat.length>0
+
+
+    if @companyplat.length>0 && @student.length>0
     	matchappoint(arg, mock, @companyplat) 
     end
 
-    if @companygold.length>0	
-   matchappoint(arg, mock, @companygold)
+    if @companygold.length>0 && @student.length>0	
+   	matchappoint(arg, mock, @companygold)
     end
 
-    if @companysilver.length>0
-    matchappoint(arg, mock, @companysilver)
+    if @companysilver.length>0 && @student.length>0
+    	matchappoint(arg, mock, @companysilver)
     end
 
     @comremain = @companyplat + @companygold + @companysilver 
@@ -137,11 +187,12 @@ end
     @comremain.delete_if{|x| x[4]<=0}
 #    puts 'remain company information have people'
 #    print @comremain
-    if @comremain.length>0  
+    if @comremain.length>0 && @student.length>0 
     matchappointwithout(arg, mock, @comremain)   
     end
-     
-
+    finish = @student.length>0 
+    
+    @studentfinish << finish
     end
 
 
@@ -150,9 +201,9 @@ def matchappointwithout(arg, mock, company)
       stuuin=[];
       totalrep = 0;        
     company.each { |com| totalrep+=com[4]}
-    puts 'print all all the remain rep number'
-    print totalrep
-    puts ' '
+    #puts 'print all all the remain rep number'
+    #print totalrep
+    #puts ' '
     while @student.length > 0 && totalrep> 0 do
       @student.each do |student|
        company.each do |item|
@@ -176,6 +227,7 @@ def matchappointwithout(arg, mock, company)
        @student.delete_if {|x| x[0]==uin}
 	end
     end
+    
 end
 
 
@@ -184,15 +236,19 @@ end
       stuuin=[]; 
       @student.each do |student|
        company.each do |item|
+
 ###############################添加一下for any的情况###############
 #	@student =  Student.where(Resume_3: arg).collect {|item| [item.UIN, item.name, item.degree, item.position_type, item.US_Citizen, item.send(mock)]}
-#
-#
+
 #   @companysilver = Company.where("sponsor_level = ? AND #{selforcom} > 0 ", 'Silver').collect {|item| [item.name, item.job_type, item.student_level, item.citizenship, item.send(selforcom)]}
 ###################################################################
 
 	    usif= item[3]=="US Citizen Only"? true:false
-	    if ((item[4] > 0 && item[1] == student[3] && item[2] == student[2] && usif == student[4])||(item[4] > 0 && )
+	    conjobtype = item[1] == student[3] || item[1] == 'any'
+	    condegree = item[2] == student[2] || item[2] == 'any'
+	    concitizen = usif == student[4] || usif == false 
+
+	    if (item[4] > 0 && conjobtype && condegree && concitizen)
 	    getone = student
 	   
             appointment = Appointment.new

@@ -65,6 +65,7 @@ class AppointmentsController < ApplicationController
 
   def generate
     @studentfinish = []
+    @errormessage = ["Error timeslot Below:"]
     Appointment.delete_all
     #matchapp('11:30am-12:30am','Mock_1')
     matchappsection('Mock Interview 1')
@@ -85,6 +86,8 @@ class AppointmentsController < ApplicationController
       redirect_to appointments_url, notice: 'Appointment was successfully generated.'
     else 
       redirect_to appointments_url, notice: 'Appointment was successfully generated, however lack of company, some student failed, check your company status' 
+  #flash[:notice] =  "Appointment was generated, Some students failed to generate an appointment due to the lack of campany represents for the following time slots"
+  flash[:notice] = @errormessage
     end 
  end
 
@@ -191,7 +194,11 @@ end
     matchappointwithout(arg, mock, @comremain)   
     end
     finish = @student.length>0 
-    
+    if @student.length > 0
+    error = "#{mock}"+ ':  '+ "#{arg}" 
+    #error = arg
+    @errormessage << error 
+    end
     @studentfinish << finish
     end
 
@@ -244,9 +251,9 @@ end
 ###################################################################
 
       usif= item[3]=="US Citizen Only"? true:false
-      conjobtype = item[1] == student[3] || item[1] == 'any'
-      condegree = item[2] == student[2] || item[2] == 'any'
-      concitizen = usif == student[4] || usif == false 
+      conjobtype = item[1] == student[3] || item[1] == 'any' || item[1] == nil
+      condegree = item[2] == student[2] || item[2] == 'any' || item[2] == nil 
+      concitizen = usif == student[4] || usif == false || usif == nil
 
       if (item[4] > 0 && conjobtype && condegree && concitizen)
       getone = student

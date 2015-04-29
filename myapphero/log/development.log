@@ -44377,3 +44377,3084 @@ Started GET "/sessions" for ::1 at 2015-04-28 20:42:12 -0500
 Processing by SessionsController#index as HTML
   Rendered sessions/index.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 72ms (Views: 71.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:23:47 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (2.6ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 491ms (Views: 461.9ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-28 22:23:49 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (3.0ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (45.4ms)
+  Rendered students/new.html.erb within layouts/application (57.6ms)
+Completed 200 OK in 169ms (Views: 143.5ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/students" for ::1 at 2015-04-28 22:24:00 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qE/k15EegU09mgW4eof2PmlzuVrUTkFvN+Igc0udHY15d6gwqizCGkuqDbaCYqqtEAt3IY//MeAN/JNa4lTyLg==", "student"=>{"name"=>"aa", "UIN"=>"090980989", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.6ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090980989' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Redirected to http://localhost:3000/students/new
+Completed 302 Found in 31ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-28 22:24:00 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.7ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (1.0ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (7.2ms)
+  Rendered students/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 125ms (Views: 110.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:24:04 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.5ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 82ms (Views: 81.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/students/66" for ::1 at 2015-04-28 22:24:07 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JOGNUoKSjdPvS9JrxF80JPcIewjliTw7Tg2BBRlcE5b12cG1uaDOhJl72mU8umi3jnC1c744TLR0EzIssJX8NQ==", "id"=>"66"}
+  [1m[36mStudent Load (1.0ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 66]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 66]]
+  [1m[35m (4.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 38ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:24:07 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 127ms (Views: 126.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-28 22:24:08 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (3.1ms)
+  Rendered students/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 97ms (Views: 91.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/students" for ::1 at 2015-04-28 22:24:18 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HytxUuP0vQPSfAzlKOP1fcoiTauEwVo7zW77Aah+CeDOEz212Mb+VKRMBOvQBqnus1qD0N9wKrT3cEgoAbfmQw==", "student"=>{"name"=>"asdf", "UIN"=>"090809876", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090809876' LIMIT 1[0m
+  [1m[35mSQL (8.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "asdf"], ["UIN", "090809876"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 03:24:18.232421"], ["updated_at", "2015-04-29 03:24:18.232421"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#stu_reg: processed outbound mail in 280.5ms
+
+Sent mail to xijun116@gmail.com (1266.6ms)
+Date: Tue, 28 Apr 2015 22:24:18 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55404ee28acde_18993fc0bcc5555062873@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.4ms)
+
+UserMailer#welcome_email: processed outbound mail in 17.9ms
+
+Sent mail to xijun116@gmail.com (1307.4ms)
+Date: Tue, 28 Apr 2015 22:24:19 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55404ee3ce87a_18993fc0bcc55550629a4@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asdf</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/67
+Completed 302 Found in 2928ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/students/67" for ::1 at 2015-04-28 22:24:21 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 67]]
+  Rendered students/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 90ms (Views: 88.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:24:25 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 79ms (Views: 78.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/students/67" for ::1 at 2015-04-28 22:24:30 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2o7gCiHm+wydCVzWuj6RnNJ/owEPlilCAryBCKW0SZELtqztGtS4W+s5VNhC280PqwdtelQnWc04ojIhDH2mMg==", "id"=>"67"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 67]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 67]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 11ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:24:30 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 96ms (Views: 94.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-28 22:25:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (2.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (36.9ms)
+  Rendered students/new.html.erb within layouts/application (48.6ms)
+Completed 200 OK in 504ms (Views: 452.8ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:25:18 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (10.5ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 108ms (Views: 96.3ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-28 22:25:20 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (5.2ms)
+  Rendered students/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 107ms (Views: 99.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/students" for ::1 at 2015-04-28 22:25:30 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7KjrdpAjKCtSojHDhmK2YsnugNiqMj1AR+LB/1nMerA9kKeRqxFrfCSSOc1+h+rxsJZOo/GDTc99/HLW8AWVEw==", "student"=>{"name"=>"as", "UIN"=>"090989790", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090989790' LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "as"], ["UIN", "090989790"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 03:25:30.037161"], ["updated_at", "2015-04-29 03:25:30.037161"]]
+  [1m[35m (3.6ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.7ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#stu_reg: processed outbound mail in 285.9ms
+
+Sent mail to xijun116@gmail.com (17.3ms)
+Date: Tue, 28 Apr 2015 22:25:30 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55404f2a5b84d_18b23fc4d40916e4313e9@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.6ms)
+
+UserMailer#welcome_email: processed outbound mail in 16.9ms
+
+Sent mail to xijun116@gmail.com (4.0ms)
+Date: Tue, 28 Apr 2015 22:25:30 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55404f2a62ab0_18b23fc4d40916e431460@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, as</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: as.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/68
+Completed 302 Found in 393ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/students/68" for ::1 at 2015-04-28 22:25:30 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"68"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 68]]
+  Rendered students/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 86ms (Views: 76.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:25:34 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/students/68" for ::1 at 2015-04-28 22:26:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wNbrYw0U9Zs4NmqT6T4Xeqi9nLVGqPAac2RoGTvcomER7qeENia2zE4GYp0R20vp0cVSzh0ZgJVJetswkhVNwg==", "id"=>"68"}
+  [1m[35mStudent Load (2.6ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 68]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 68]]
+  [1m[36m (4.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 63ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/students" for ::1 at 2015-04-28 22:26:34 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 435ms (Views: 433.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-28 22:26:36 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (3.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (40.2ms)
+  Rendered students/new.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 184ms (Views: 159.6ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/students" for ::1 at 2015-04-28 22:26:46 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f3HzCu214I+7QcubsUX1IODNx9BkPUrpasQdBkt+IZeuSb/t1oej2M1xw5VJoKmzmbUJqz+MOmZQ2q4v4rfONA==", "student"=>{"name"=>"asdf", "UIN"=>"090989098", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090989098' LIMIT 1
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "asdf"], ["UIN", "090989098"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 03:26:46.888302"], ["updated_at", "2015-04-29 03:26:46.888302"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#stu_reg: processed outbound mail in 228.1ms
+
+Sent mail to xijun116@gmail.com (12.4ms)
+Date: Tue, 28 Apr 2015 22:26:47 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55404f772dbb6_18cc3ff59d49d91473a@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Completed 500 Internal Server Error in 338ms (ActiveRecord: 9.6ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/students_controller.rb:72:in `block in create'
+  app/controllers/students_controller.rb:55:in `create'
+
+
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.9ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (51.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (118.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-29 00:52:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (58.6ms)
+Completed 200 OK in 552ms (Views: 539.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:38 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:38 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:38 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:38 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:38 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:38 -0500
+
+
+Started GET "/students" for ::1 at 2015-04-29 00:52:39 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (2.8ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 145ms (Views: 127.5ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:39 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:39 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:39 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:39 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:39 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 00:52:39 -0500
+
+
+Started DELETE "/students/69" for ::1 at 2015-04-29 00:52:42 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wlXGDC1d/L2LuKMR3GWOqcpmBSjyWBN7lxpP3x+n35MTbYrrFm+/6v2Iqx8kgNI6sx7LU6npY/StBPz2tm4wMA==", "id"=>"69"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 69]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 69]]
+  [1m[35m (26.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 66ms (ActiveRecord: 27.4ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 00:52:42 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 122ms (Views: 120.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 00:52:46 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k5ovz2hjE7vRPx/Z6bJRemZFAFOSQzY2d31T899GuG9ComMoU1FQ7KcPF9cRVw3pHz3OKMnyRrlNY+Dado9XzA==", "student"=>{"name"=>"asdf", "UIN"=>"090989098", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090989098' LIMIT 1[0m
+  [1m[35mSQL (9.0ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "asdf"], ["UIN", "090989098"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 05:52:46.294293"], ["updated_at", "2015-04-29 05:52:46.294293"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (2.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (1.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (1.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.4ms)
+
+UserMailer#stu_reg: processed outbound mail in 275.2ms
+
+Sent mail to xijun116@gmail.com (1718.8ms)
+Date: Wed, 29 Apr 2015 00:52:46 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <554071ae9ebe2_21cc3fd03d94eab0734b1@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#welcome_email: processed outbound mail in 17.7ms
+
+Sent mail to xijun116@gmail.com (1104.1ms)
+Date: Wed, 29 Apr 2015 00:52:48 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <554071b05cab6_21cc3fd03d94eab073546@MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asdf</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/70
+Completed 302 Found in 3223ms (ActiveRecord: 19.8ms)
+
+
+Started GET "/students/70" for ::1 at 2015-04-29 00:52:49 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 70]]
+  Rendered students/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 86ms (Views: 84.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 00:52:57 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (17.0ms)
+  Rendered students/new.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 136ms (Views: 128.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:15:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (9.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (17.7ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (38.2ms)
+  Rendered students/new.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 617ms (Views: 526.7ms | ActiveRecord: 51.7ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/scaffolds.self-1e8ea72c8eec591562f3ba2a877af022284fa9a89799ae84467485898ab2327e.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started GET "/assets/application.self-3803a974e824a0eafc3fc8b0138b43728d8bdb67a5d3e075e08af7be1b821792.css?body=1" for ::1 at 2015-04-29 11:15:05 -0500
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:15:17 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rjfRJjPUAHQg+JavwmLjVw/CQzoEZV1z6ofnyuUogar7V3bLE3/jqnSNV75KINoaygQ6W1i2vKdqJTGXMnLv+w==", "student"=>{"name"=>"asdfg", "UIN"=>"090909998", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (6.4ms)[0m  BEGIN
+  [1m[36mStudent Exists (22.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (2.3ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090909998' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Redirected to http://localhost:3000/students/new
+Completed 302 Found in 80ms (ActiveRecord: 31.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:15:17 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.8ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (7.2ms)
+  Rendered students/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 128ms (Views: 119.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:15:43 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lupwQCiw6mgMhc97hf6hRIJgN+CSoiQLFUehbfOSeIDDitetCBsJtljwDmoNvJgJR6ZOgc5xxd+V5XcwJMgW0Q==", "student"=>{"name"=>"asg", "UIN"=>"989987898", "email"=>"linghewang1208@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('linghewang1208@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'linghewang1208@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '989987898' LIMIT 1
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "asg"], ["UIN", "989987898"], ["email", "linghewang1208@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:15:43.699033"], ["updated_at", "2015-04-29 16:15:43.699033"]]
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (1.0ms)
+
+UserMailer#stu_reg: processed outbound mail in 276.6ms
+
+Sent mail to linghewang1208@gmail.com (30033.2ms)
+Date: Wed, 29 Apr 2015 11:15:44 -0500
+From: 2015_IAP@cse.tamu.edu
+To: linghewang1208@gmail.com
+Message-ID: <554103b08b98_30c3fc0aaf9342c8181@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Completed 500 Internal Server Error in 30376ms (ActiveRecord: 12.4ms)
+
+Net::OpenTimeout (execution expired):
+  app/controllers/students_controller.rb:72:in `block in create'
+  app/controllers/students_controller.rb:55:in `create'
+
+
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (85.5ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (86.7ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (201.8ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:16:29 -0500
+Processing by StudentsController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2015-04-29 11:16:29 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 94ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2015-04-29 11:16:38 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X8nRx1pVDMCkoheVcTQZJg6lZR+AUSg7P97JmyEuyNkKqXYqev7vHvDX1oT5diBry2McftyCye+/fB/G9nSmiA==", "session"=>{"email"=>"mhartl@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUseradd Load (3.8ms)[0m  [1mSELECT  "useradds".* FROM "useradds" WHERE "useradds"."email" = $1 LIMIT 1[0m  [["email", "mhartl@example.com"]]
+Redirected to http://localhost:3000/sessions
+Completed 302 Found in 107ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-29 11:16:38 -0500
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 64ms (Views: 63.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:16:39 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/students/70" for ::1 at 2015-04-29 11:16:44 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Td4w0rrauwyra5HEev8+ws7GNp39awE6GcThudI7zNMYvpc/mnFY0v8eUNXyvQePCwBP/KG44O6ZZjfkBWGigg==", "id"=>"70"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 70]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (6.4ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 70]]
+  [1m[35m (6.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 36ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:16:44 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.6ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 101ms (Views: 99.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/students/71" for ::1 at 2015-04-29 11:16:46 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"h5blVjJS7wMFpXMDbPyUeGtsgoE53WTEqqbfRijcyLXS9kK7EvkM3VHQshLkvq01rqr74GUOhRAqBAkb/4am5A==", "id"=>"71"}
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 71]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 71]]
+  [1m[36m (8.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 12ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:16:46 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 90ms (Views: 88.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:17:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (2.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (36.0ms)
+  Rendered students/new.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 510ms (Views: 460.4ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:17:13 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:17:13 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:17:13 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:17:13 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:17:13 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:17:13 -0500
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:17:28 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XQQ00toCjug1m1RNBqXUvbcm3X09cfPdRR4y8WqUC4oIZJM/+qltNmHulVyO5+3wcuCkHGGiEgnFvOSsvc5l2w==", "student"=>{"name"=>"afg", "UIN"=>"009800899", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (1.9ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '009800899' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "afg"], ["UIN", "009800899"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:17:28.690963"], ["updated_at", "2015-04-29 16:17:28.690963"]]
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (1.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (1.5ms)
+
+UserMailer#stu_reg: processed outbound mail in 279.0ms
+
+Sent mail to xijun116@gmail.com (42935.9ms)
+Date: Wed, 29 Apr 2015 11:17:29 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <5541041944fb_31e3ff86a8922fc1942@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Completed   in 43282ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:18:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (1.8ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 443ms (Views: 418.4ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:18:38 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:18:38 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:18:38 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:18:38 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:18:38 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:18:38 -0500
+
+
+Started DELETE "/students/72" for ::1 at 2015-04-29 11:18:41 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7UQmfWSihGbMUfdCbJN34qtoRYgbkFYezVwzrJ6ub5O4JIGQRAlnuJgkNlPk0U6vbq486UdDt8pN/uXxSfQBwg==", "id"=>"72"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 72]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 72]]
+  [1m[35m (2.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 27ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:18:42 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:18:42 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (2.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (46.0ms)
+  Rendered students/new.html.erb within layouts/application (54.8ms)
+Completed 200 OK in 162ms (Views: 135.5ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:18:56 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OQv3LGF/L/78r1Dw/Cq30d0mDbPLlUyW851He6xH1c5sa1DBQdTMIKjakeF0aI6cGOB00pdGrUJzP5Emex27nw==", "student"=>{"name"=>"asdg", "UIN"=>"090898997", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090898997' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "asdg"], ["UIN", "090898997"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:18:56.157525"], ["updated_at", "2015-04-29 16:18:56.157525"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.4ms)
+
+UserMailer#stu_reg: processed outbound mail in 232.1ms
+
+Sent mail to xijun116@gmail.com (60080.0ms)
+Date: Wed, 29 Apr 2015 11:18:56 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <5541047069eb9_3293fefa20767d8356ad@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Completed 500 Internal Server Error in 60379ms (ActiveRecord: 4.5ms)
+
+Net::ReadTimeout (Net::ReadTimeout):
+  app/controllers/students_controller.rb:72:in `block in create'
+  app/controllers/students_controller.rb:55:in `create'
+
+
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.7ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (53.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (119.5ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:20:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OQv3LGF/L/78r1Dw/Cq30d0mDbPLlUyW851He6xH1c5sa1DBQdTMIKjakeF0aI6cGOB00pdGrUJzP5Emex27nw==", "student"=>{"name"=>"asdg", "UIN"=>"090898997", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (3.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '090898997' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Redirected to http://localhost:3000/students/new
+Completed 302 Found in 75ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:20:44 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (2.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (26.8ms)
+  Rendered students/new.html.erb within layouts/application (46.3ms)
+Completed 200 OK in 529ms (Views: 502.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/scaffolds.self-1e8ea72c8eec591562f3ba2a877af022284fa9a89799ae84467485898ab2327e.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/useradds.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/application.self-3803a974e824a0eafc3fc8b0138b43728d8bdb67a5d3e075e08af7be1b821792.css?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/appointments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/timeslots.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-29 11:20:45 -0500
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:20:54 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TOkEwVYvGut2SOIiFzuFcm0GajsgxtZmow+X/dUaDNkZiaMsdoT5NSI9IzOfebw/qMATWnwVN7IjrUGgAkBiiA==", "student"=>{"name"=>"adfag", "UIN"=>"989890980", "email"=>"linghewang1208@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.5ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('linghewang1208@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'linghewang1208@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '989890980' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "adfag"], ["UIN", "989890980"], ["email", "linghewang1208@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:20:54.637894"], ["updated_at", "2015-04-29 16:20:54.637894"]]
+  [1m[35m (9.9ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#stu_reg: processed outbound mail in 265.7ms
+
+Sent mail to linghewang1208@gmail.com (1317.3ms)
+Date: Wed, 29 Apr 2015 11:20:54 -0500
+From: 2015_IAP@cse.tamu.edu
+To: linghewang1208@gmail.com
+Message-ID: <554104e6ea3cc_3363ff934f8ec5c16998@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Completed 500 Internal Server Error in 1640ms (ActiveRecord: 14.0ms)
+
+Net::SMTPFatalError (553 From address not verified - see http://help.yahoo.com/l/us/yahoo/mail/original/manage/sendfrom-07.html
+):
+  app/controllers/students_controller.rb:72:in `block in create'
+  app/controllers/students_controller.rb:55:in `create'
+
+
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.6ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (47.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (105.4ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:26:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (1.9ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 495ms (Views: 457.3ms | ActiveRecord: 15.2ms)
+
+
+Started DELETE "/students/74" for ::1 at 2015-04-29 11:26:46 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aD71cdMd5/4mN2So9ELESRrV7PdGWqMeZxNl/zGETO09XlKc87YEIHJCpbl8AP0E3xOVlhqJQsrnsbOi5t4ivA==", "id"=>"74"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 74]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 74]]
+  [1m[35m (3.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 26ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:26:46 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 109ms (Views: 107.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/students/73" for ::1 at 2015-04-29 11:26:48 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"A/kgPOQp3ukhWkc2P9hy2zsuqg9tbySr3fZ14FwD4C1WmYfRxII9N3Uvhie3mkuW/ujTbjG8xX9dVKO9i1mOfA==", "id"=>"73"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 73]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 73]]
+  [1m[36m (8.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 13ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:26:48 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 129ms (Views: 126.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:26:50 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (3.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (40.3ms)
+  Rendered students/new.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 144ms (Views: 120.3ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:26:59 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RzV4Rb3ilIjo7cKdlOqbE4S6X9hsvWaPuW1vLpw/koYSVd+onUl3VryYA4wcqKJeQXwmuTBuh1s5z7lzS2X81w==", "student"=>{"name"=>"asdg", "UIN"=>"980989998", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '980989998' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "asdg"], ["UIN", "980989998"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:26:59.418996"], ["updated_at", "2015-04-29 16:26:59.418996"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.6ms)
+
+UserMailer#stu_reg: processed outbound mail in 228.5ms
+
+Sent mail to xijun116@gmail.com (3382.6ms)
+Date: Wed, 29 Apr 2015 11:26:59 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410653a7075_3563ff7abb4252073844@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Completed 500 Internal Server Error in 3666ms (ActiveRecord: 5.1ms)
+
+Net::SMTPFatalError (553 From address not verified - see http://help.yahoo.com/l/us/yahoo/mail/original/manage/sendfrom-07.html
+):
+  app/controllers/students_controller.rb:72:in `block in create'
+  app/controllers/students_controller.rb:55:in `create'
+
+
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.1ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (45.7ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cici/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (103.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-29 11:38:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 500ms (Views: 489.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:44 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:44 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:44 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:44 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:44 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:44 -0500
+
+
+Started GET "/" for ::1 at 2015-04-29 11:38:46 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 85ms (Views: 84.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:46 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:46 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:46 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:46 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:46 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:46 -0500
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:38:47 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (2.6ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 117ms (Views: 99.0ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:47 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:47 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:47 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:47 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:47 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:47 -0500
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:38:48 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (2.9ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (14.0ms)
+  Rendered students/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 103ms (Views: 82.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:48 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:48 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:48 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:48 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:48 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:38:48 -0500
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:38:58 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AajaGq+eFKkiKRWn0sB8CMnUYLHeyMy7+9O+T1Rn//pUyH33jzX3d3Zc1LZagkVFDBIZ0IIbLW97cWgSgz2Rqw==", "student"=>{"name"=>"asdfgasdg", "UIN"=>"234143221", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '234143221' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Redirected to http://localhost:3000/students/new
+Completed 302 Found in 24ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:38:58 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (6.5ms)
+  Rendered students/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 84ms (Views: 78.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:39:02 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (5.2ms)
+  Rendered students/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 144ms (Views: 140.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:39:02 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (4.2ms)
+  Rendered students/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 82ms (Views: 76.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:39:02 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:39:02 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:39:02 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:39:02 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:39:02 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:39:02 -0500
+
+
+Started GET "/students/" for ::1 at 2015-04-29 11:39:02 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 97ms (Views: 96.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/students/75" for ::1 at 2015-04-29 11:39:06 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KHfgipX5W5j3jq21HFAHk4/zt65JxFvDC3zA25j0VHh9F0dntVK4RqP7bKSUEj7eSjXOzxUXuheL3haGT646KQ==", "id"=>"75"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 75]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 75]]
+  [1m[35m (3.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 21ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:39:06 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.6ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 79ms (Views: 78.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:39:06 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (3.6ms)
+  Rendered students/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 82ms (Views: 77.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:39:15 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFpncXrsk39d+Ux6MfWJ0/ozjLWknuYIX7AVsnaBvJd5OsCcWkdwoQmMjWu5t7CeP/X11PhNB9zfEsPvodvSxg==", "student"=>{"name"=>"asdfafd", "UIN"=>"980978879", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '980978879' LIMIT 1[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "asdfafd"], ["UIN", "980978879"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:39:15.225004"], ["updated_at", "2015-04-29 16:39:15.225004"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (1.0ms)
+
+UserMailer#stu_reg: processed outbound mail in 286.7ms
+
+Sent mail to xijun116@gmail.com (7731.2ms)
+Date: Wed, 29 Apr 2015 11:39:15 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <5541093388a1d_41e3ffbe0e3e6287672b@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#welcome_email: processed outbound mail in 16.6ms
+
+Sent mail to xijun116@gmail.com (1301.4ms)
+Date: Wed, 29 Apr 2015 11:39:23 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <5541093b499b2_41e3ffbe0e3e628768c4@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asdfafd</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdfafd.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/76
+Completed 302 Found in 9383ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/students/76" for ::1 at 2015-04-29 11:39:24 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"76"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 76]]
+  Rendered students/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:39:27 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/students/76" for ::1 at 2015-04-29 11:39:47 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ke1t4S8REfrWnf96Iatc33J3bX62fwsMyUtuc5XtpS/EjcoMD7ryJILoPmup6WWSt7EUH+qs6thJ6bguQrfLfg==", "id"=>"76"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 76]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 76]]
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 12ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:39:47 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 68ms (Views: 67.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:39:48 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (3.1ms)
+  Rendered students/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 72ms (Views: 66.9ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:39:57 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/bdY69fdgbEeDCPVUWiSI3jVq3T5GbcJlOslkR2Ezz2o1/8G93Zib0p54sTZKqtuvRPSFaXKVt0USfPMyt6hbA==", "student"=>{"name"=>"adg", "UIN"=>"980678767", "email"=>"xwang19@tamu.edu", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xwang19@tamu.edu') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xwang19@tamu.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '980678767' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "adg"], ["UIN", "980678767"], ["email", "xwang19@tamu.edu"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:39:57.217989"], ["updated_at", "2015-04-29 16:39:57.217989"]]
+  [1m[35m (8.3ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#stu_reg: processed outbound mail in 10.7ms
+
+Sent mail to xwang19@tamu.edu (947.8ms)
+Date: Wed, 29 Apr 2015 11:39:57 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xwang19@tamu.edu
+Message-ID: <5541095d3c523_41e3ffbe26dcaf4769d0@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#welcome_email: processed outbound mail in 13.9ms
+
+Sent mail to xwang19@tamu.edu (927.3ms)
+Date: Wed, 29 Apr 2015 11:39:58 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xwang19@tamu.edu
+Message-ID: <5541095e337b0_41e3ffbe26dcaf477087@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, adg</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: adg.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/77
+Completed 302 Found in 1924ms (ActiveRecord: 10.4ms)
+
+
+Started GET "/students/77" for ::1 at 2015-04-29 11:39:59 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"77"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 77]]
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 95ms (Views: 93.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:40:06 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 60ms (Views: 59.4ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/students/77" for ::1 at 2015-04-29 11:44:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4vFTU9mrmhx1iBfwq3V11+c592/7NyxA5snHA+32Uoe3kfS++QB5wiH91uEjN0yaIv+ODqfkzZRmaxFeOqw81g==", "id"=>"77"}
+  [1m[35mStudent Load (2.7ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 77]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 77]]
+  [1m[36m (3.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 89ms (ActiveRecord: 33.5ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:44:03 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 513ms (Views: 511.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:44:05 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (3.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (54.6ms)
+  Rendered students/new.html.erb within layouts/application (64.1ms)
+Completed 200 OK in 188ms (Views: 171.6ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:44:26 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugvK99VOS9JSo2f1XgLA9hLypw0jK2wMgSdyIlaI3HLva20a9eWoDAbWpuTWQPm71zTebH/4jdgBhaR/gdKyIw==", "student"=>{"name"=>"afdaf", "UIN"=>"980987789", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '980987789' LIMIT 1
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "afdaf"], ["UIN", "980987789"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:44:26.740928"], ["updated_at", "2015-04-29 16:44:26.740928"]]
+  [1m[35m (5.0ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#stu_reg: processed outbound mail in 279.2ms
+
+Sent mail to xijun116@gmail.com (166.8ms)
+Date: Wed, 29 Apr 2015 11:44:27 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410a6b146a7_43d3fd4e63d7b7464440@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#welcome_email: processed outbound mail in 24.0ms
+
+Sent mail to xijun116@gmail.com (27.0ms)
+Date: Wed, 29 Apr 2015 11:44:27 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410a6b41a6f_43d3fd4e63d7b74645bd@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, afdaf</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: afdaf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/78
+Completed 302 Found in 589ms (ActiveRecord: 16.3ms)
+
+
+Started GET "/students/78" for ::1 at 2015-04-29 11:44:27 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"78"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 78]]
+  Rendered students/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 88ms (Views: 85.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:49:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (1.8ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 483ms (Views: 441.5ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:49:03 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:49:03 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:49:03 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:49:03 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:49:03 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:49:03 -0500
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:49:05 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (3.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (35.0ms)
+  Rendered students/new.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 166ms (Views: 140.6ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:49:15 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BkPwZheYjLcnx8qSpmTCPhFvv+qC404PBN9MVcdkMiRTI1eLNzNvaXOyC4MuJvtz1KnGi94wr9uEfZoIED5cdQ==", "student"=>{"name"=>"af", "UIN"=>"989787867", "email"=>"linghewang1208@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.5ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('linghewang1208@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'linghewang1208@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '989787867' LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "af"], ["UIN", "989787867"], ["email", "linghewang1208@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:49:15.317101"], ["updated_at", "2015-04-29 16:49:15.317101"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#stu_reg: processed outbound mail in 227.7ms
+
+Sent mail to linghewang1208@gmail.com (929.8ms)
+Date: Wed, 29 Apr 2015 11:49:15 -0500
+From: 2015_IAP@cse.tamu.edu
+To: linghewang1208@gmail.com
+Message-ID: <55410b8b90348_4613fdda5c945d81032e@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.6ms)
+
+UserMailer#welcome_email: processed outbound mail in 23.5ms
+
+Sent mail to linghewang1208@gmail.com (984.5ms)
+Date: Wed, 29 Apr 2015 11:49:16 -0500
+From: 2015_IAP@cse.tamu.edu
+To: linghewang1208@gmail.com
+Message-ID: <55410b8c8390d_4613fdda5c945d8104c1@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, af</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: af.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/79
+Completed 302 Found in 2249ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/students/79" for ::1 at 2015-04-29 11:49:17 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"79"}
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 79]]
+  Rendered students/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 93ms (Views: 64.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:49:45 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 62ms (Views: 60.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/students/78" for ::1 at 2015-04-29 11:49:48 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ph4N5CW/qG7FA8UYPL4Ok+cAM8GUxL+mT5HacwxMzSrzfqoJBRRLsJF2BAm0/DfeIsZKoMgXXnLPMwwu2xajew==", "id"=>"78"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 78]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 78]]
+  [1m[35m (8.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 11ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:49:48 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 81ms (Views: 79.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/students/79" for ::1 at 2015-04-29 11:49:50 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VROWfsl0QAs7OXQCPAq0JD9ZH9HOHTR+ZqGpmV14DxYAczGT6d+j1W9MtRO0SI1p+p9msJLO1armA3/EiiJhRw==", "id"=>"79"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 79]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 79]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 10ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:49:50 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 78ms (Views: 77.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:53:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (10.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 524ms (Views: 475.8ms | ActiveRecord: 31.0ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/scaffolds.self-1e8ea72c8eec591562f3ba2a877af022284fa9a89799ae84467485898ab2327e.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/useradds.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/application.self-3803a974e824a0eafc3fc8b0138b43728d8bdb67a5d3e075e08af7be1b821792.css?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/appointments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/timeslots.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-29 11:53:29 -0500
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:53:30 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (2.8ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (47.8ms)
+  Rendered students/new.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 190ms (Views: 163.9ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:53:42 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KcOoANXEKT+/elr1Y22+I0y/asVV6i0Hhi2E79gb/Tx8ow/t9W/K4esPm+TrL4duiXkTpAk5zNMGj1KyD0GTbQ==", "student"=>{"name"=>"agag", "UIN"=>"767876897", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '767876897' LIMIT 1
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "agag"], ["UIN", "767876897"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:53:42.896663"], ["updated_at", "2015-04-29 16:53:42.896663"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#stu_reg: processed outbound mail in 269.7ms
+
+Sent mail to xijun116@gmail.com (91.6ms)
+Date: Wed, 29 Apr 2015 11:53:43 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410c9733912_4833ffd2067c6c461759@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#welcome_email: processed outbound mail in 22.1ms
+
+Sent mail to xijun116@gmail.com (29.5ms)
+Date: Wed, 29 Apr 2015 11:53:43 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410c974e2a7_4833ffd2067c6c461868@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, agag</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: agag.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/80
+Completed 302 Found in 485ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/students/80" for ::1 at 2015-04-29 11:53:43 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"80"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 80]]
+  Rendered students/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 99ms (Views: 78.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:53:46 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 76ms (Views: 75.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/students/80" for ::1 at 2015-04-29 11:54:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DRPwrIrrDS7Sx48zy6deY+1mGoJmPR+UN7Zd/BARlolYc1dBqkDu8IayTiJD5WcuKKBj4zru/kC3FIuhx0v42A==", "id"=>"80"}
+  [1m[35mStudent Load (2.5ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 80]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "students" WHERE "students"."id" = $1  [["id", 80]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 56ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:54:39 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 443ms (Views: 441.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:54:40 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (2.7ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (37.9ms)
+  Rendered students/new.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 167ms (Views: 151.9ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:54:53 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l+U5O+/THxBSbl+poAaq1SqN7AGDVqUuYpx4bcZIxA/ChZ7Wz3j8zgYbnrgoRJOY70uVYN+FRPriPq4wERKqXg==", "student"=>{"name"=>"asdga", "UIN"=>"124134879", "email"=>"linghewang1208@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('linghewang1208@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'linghewang1208@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '124134879' LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "asdga"], ["UIN", "124134879"], ["email", "linghewang1208@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:54:53.231868"], ["updated_at", "2015-04-29 16:54:53.231868"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.3ms)
+
+UserMailer#stu_reg: processed outbound mail in 232.8ms
+
+Sent mail to linghewang1208@gmail.com (46.6ms)
+Date: Wed, 29 Apr 2015 11:54:53 -0500
+From: 2015_IAP@cse.tamu.edu
+To: linghewang1208@gmail.com
+Message-ID: <55410cdd7d014_4973ff520aa3a0c97726@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.7ms)
+
+UserMailer#welcome_email: processed outbound mail in 21.1ms
+
+Sent mail to linghewang1208@gmail.com (24.6ms)
+Date: Wed, 29 Apr 2015 11:54:53 -0500
+From: 2015_IAP@cse.tamu.edu
+To: linghewang1208@gmail.com
+Message-ID: <55410cdd8c643_4973ff520aa3a0c97850@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asdga</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdga.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/81
+Completed 302 Found in 398ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/students/81" for ::1 at 2015-04-29 11:54:53 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"81"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 81]]
+  Rendered students/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 79ms (Views: 76.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:57:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (11.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 511ms (Views: 466.5ms | ActiveRecord: 30.1ms)
+
+
+Started DELETE "/students/81" for ::1 at 2015-04-29 11:57:12 -0500
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nlzHd5BuJKyi+lBA/AC/ml4imDkruf8YHVe9CG0xwq7LPGCasMXHcvaPkVF0QobXm+ThWHdqHsyd9WtVumus/w==", "id"=>"81"}
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 81]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 81]]
+  [1m[35m (3.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/students
+Completed 302 Found in 30ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 11:57:12 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 114ms (Views: 112.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 11:57:17 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (2.9ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (50.0ms)
+  Rendered students/new.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 167ms (Views: 139.4ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 11:57:29 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rlYYfuTBCbG3KVdrDzry+BtKg1UUXInzgPrSteZaBQn7Nr+TxGrqb+NclnqHeMu13oz6NEiPaCcAWAToMQBrWA==", "student"=>{"name"=>"asdkfjl", "UIN"=>"124909789", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '124909789' LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "asdkfjl"], ["UIN", "124909789"], ["email", "xijun116@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 16:57:29.098338"], ["updated_at", "2015-04-29 16:57:29.098338"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (4.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#stu_reg: processed outbound mail in 236.3ms
+
+Sent mail to xijun116@gmail.com (69.6ms)
+Date: Wed, 29 Apr 2015 11:57:29 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410d795b183_4af3fe81d2bda6460763@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.7ms)
+
+UserMailer#welcome_email: processed outbound mail in 20.9ms
+
+Sent mail to xijun116@gmail.com (26.4ms)
+Date: Wed, 29 Apr 2015 11:57:29 -0500
+From: 2015_IAP@cse.tamu.edu
+To: xijun116@gmail.com
+Message-ID: <55410d7970035_4af3fe81d2bda64608c3@dhcp-10-202-133-185.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asdkfjl</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdkfjl.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/82
+Completed 302 Found in 413ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/students/82" for ::1 at 2015-04-29 11:57:29 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"82"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 82]]
+  Rendered students/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 89ms (Views: 87.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-04-29 14:14:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (8.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 471ms (Views: 457.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/scaffolds.self-1e8ea72c8eec591562f3ba2a877af022284fa9a89799ae84467485898ab2327e.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/application.self-3803a974e824a0eafc3fc8b0138b43728d8bdb67a5d3e075e08af7be1b821792.css?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/appointments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/timeslots.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/useradds.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-29 14:14:03 -0500
+
+
+Started GET "/" for ::1 at 2015-04-29 14:14:05 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 108ms (Views: 107.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 14:14:05 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (3.9ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (1.0ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (16.2ms)
+  Rendered students/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 172ms (Views: 106.7ms | ActiveRecord: 38.8ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-29 14:14:05 -0500
+
+
+Started POST "/students" for ::1 at 2015-04-29 14:15:11 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sscTxecIX1Nevwg+Q1Jla79kh+8dWoM0i5Nv86Ix+/q4k8J4a6LHEmNkBZPwLj3Uxxo0didXvuY906Rxm2kdlg==", "student"=>{"name"=>"asdfa", "UIN"=>"879879878", "email"=>"xijun116@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (6.3ms)[0m  BEGIN
+  [1m[36mStudent Exists (20.4ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('xijun116@gmail.com') LIMIT 1[0m
+  [1m[35mStudent Exists (0.7ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'xijun116@gmail.com' LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '879879878' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Redirected to http://localhost:3000/students/new
+Completed 302 Found in 83ms (ActiveRecord: 27.7ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 14:15:11 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (3.8ms)
+  Rendered students/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 89ms (Views: 85.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 14:15:28 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"no0/oow+9z0aBIKwxdunRPiCskvp4CKuJD85pJTFPf6U2e4fAJRvfCffjx12p//7gPwB0tPtH3ySf/ImrZ3bkg==", "student"=>{"name"=>"asfdaf", "UIN"=>"989787878", "email"=>"hongyuheng1991@gmail.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('hongyuheng1991@gmail.com') LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'hongyuheng1991@gmail.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.5ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '989787878' LIMIT 1
+  [1m[36mSQL (7.5ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "asfdaf"], ["UIN", "989787878"], ["email", "hongyuheng1991@gmail.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 19:15:28.198621"], ["updated_at", "2015-04-29 19:15:28.198621"]]
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.4ms)
+
+UserMailer#stu_reg: processed outbound mail in 272.8ms
+
+Sent mail to hongyuheng1991@gmail.com (1029.1ms)
+Date: Wed, 29 Apr 2015 14:15:28 -0500
+From: 2015_IAP@cse.tamu.edu
+To: hongyuheng1991@gmail.com
+Message-ID: <55412dd082c5f_2bf3ffa5b033a8c256c7@dhcp-10-202-132-235.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#welcome_email: processed outbound mail in 16.7ms
+
+Sent mail to hongyuheng1991@gmail.com (790.4ms)
+Date: Wed, 29 Apr 2015 14:15:29 -0500
+From: 2015_IAP@cse.tamu.edu
+To: hongyuheng1991@gmail.com
+Message-ID: <55412dd18c301_2bf3ffa5b033a8c257bd@dhcp-10-202-132-235.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asfdaf</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asfdaf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/83
+Completed 302 Found in 2172ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/students/83" for ::1 at 2015-04-29 14:15:30 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"83"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 83]]
+  Rendered students/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 80ms (Views: 60.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 14:15:34 -0500
+Processing by StudentsController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2015-04-29 14:15:34 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2015-04-29 14:15:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gjDOGYqvvNezgI601UkTwXtxckGaiiYhiwpio4um8lKIZB+kBgUklo5bgxlmNUt+Aw/B2KCHG/M9Sqkhsv4UPg==", "session"=>{"email"=>"mhartl@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUseradd Load (8.6ms)[0m  SELECT  "useradds".* FROM "useradds" WHERE "useradds"."email" = $1 LIMIT 1  [["email", "mhartl@example.com"]]
+Redirected to http://localhost:3000/sessions
+Completed 302 Found in 110ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-29 14:15:50 -0500
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 61ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-29 14:15:57 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (2.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 82ms (Views: 76.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/generate" for ::1 at 2015-04-29 14:17:01 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (24.1ms)[0m  DELETE FROM "appointments"
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 1')[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "10:20am-10:40am"]]
+  [1m[36mCompany Load (8.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:20am-10:40am"], ["company", "ABV"], ["student", "ab"], ["UIN", "124121512"], ["created_at", "2015-04-29 19:17:01.166119"], ["updated_at", "2015-04-29 19:17:01.166119"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "10:00am-10:20am"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:00am-10:20am"], ["company", "ABV"], ["student", "agag"], ["UIN", "876182124"], ["created_at", "2015-04-29 19:17:01.173167"], ["updated_at", "2015-04-29 19:17:01.173167"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:00am-10:20am"], ["company", "ABV"], ["student", "adsgag"], ["UIN", "124451245"], ["created_at", "2015-04-29 19:17:01.175307"], ["updated_at", "2015-04-29 19:17:01.175307"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 2')[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1  [["Mock_2", "11:00am-11:20am"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1  [["Mock_2", "10:40am-11:00am"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 1')
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 2')[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 3')
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 113ms (ActiveRecord: 44.1ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-29 14:17:01 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 84ms (Views: 82.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/timeslots" for ::1 at 2015-04-29 14:17:07 -0500
+Processing by TimeslotsController#index as HTML
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots"
+  Rendered timeslots/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-29 14:17:17 -0500
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 57ms (Views: 56.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for ::1 at 2015-04-29 14:17:19 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 66ms (Views: 64.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-29 14:17:28 -0500
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 59ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 14:17:30 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 68ms (Views: 67.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/new" for ::1 at 2015-04-29 14:17:31 -0500
+Processing by StudentsController#new as HTML
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+  Rendered students/_form.html.erb (4.5ms)
+  Rendered students/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 75ms (Views: 70.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/students" for ::1 at 2015-04-29 14:17:54 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WNL34UjXYFKIvhPzIU2ou2Zk50HwBxnouCeOMKyc0ixShiZcxH34E7VlHl6SMfAEHhpU2MoKJDoOZ0WylcQ0QA==", "student"=>{"name"=>"asdfa", "UIN"=>"123789879", "email"=>"adf@aldfjk.com", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"", "Mock_2"=>"10:40am-11:00am", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('adf@aldfjk.com') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'adf@aldfjk.com' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123789879' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "asdfa"], ["UIN", "123789879"], ["email", "adf@aldfjk.com"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", "10:40am-11:00am"], ["Resume_1", ""], ["Resume_2", ""], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 19:17:54.915253"], ["updated_at", "2015-04-29 19:17:54.915253"]]
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT  "timeslots".* FROM "timeslots" WHERE "timeslots"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTimeslot Exists (1.3ms)[0m  [1mSELECT  1 AS one FROM "timeslots" WHERE ("timeslots"."section" = 'Mock Interview 2' AND "timeslots"."id" != 3 AND "timeslots"."slot" = '10:40am-11:00am') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "timeslots" SET "stunum" = $1, "updated_at" = $2 WHERE "timeslots"."id" = $3  [["stunum", 37], ["updated_at", "2015-04-29 19:17:54.933415"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#stu_reg: processed outbound mail in 12.5ms
+
+Sent mail to adf@aldfjk.com (1035.8ms)
+Date: Wed, 29 Apr 2015 14:17:54 -0500
+From: 2015_IAP@cse.tamu.edu
+To: adf@aldfjk.com
+Message-ID: <55412e62eb6eb_2bf3ffa5dd2696825889@dhcp-10-202-132-235.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is:<br>
+    </p>
+    
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#welcome_email: processed outbound mail in 20.9ms
+
+Sent mail to adf@aldfjk.com (748.4ms)
+Date: Wed, 29 Apr 2015 14:17:56 -0500
+From: 2015_IAP@cse.tamu.edu
+To: adf@aldfjk.com
+Message-ID: <55412e6457f2_2bf3ffa5dd26968259fb@dhcp-10-202-132-235.tamulink.tamu.edu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, asdfa</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdfa.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/students/84
+Completed 302 Found in 1860ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/students/84" for ::1 at 2015-04-29 14:17:56 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"84"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 84]]
+  Rendered students/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for ::1 at 2015-04-29 14:17:59 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-29 14:18:00 -0500
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-29 14:18:03 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 81ms (Views: 80.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/generate" for ::1 at 2015-04-29 14:18:05 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (8.4ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 1')
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "10:20am-10:40am"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:20am-10:40am"], ["company", "ABV"], ["student", "ab"], ["UIN", "124121512"], ["created_at", "2015-04-29 19:18:05.705058"], ["updated_at", "2015-04-29 19:18:05.705058"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "10:00am-10:20am"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:00am-10:20am"], ["company", "ABV"], ["student", "agag"], ["UIN", "876182124"], ["created_at", "2015-04-29 19:18:05.710997"], ["updated_at", "2015-04-29 19:18:05.710997"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:00am-10:20am"], ["company", "ABV"], ["student", "adsgag"], ["UIN", "124451245"], ["created_at", "2015-04-29 19:18:05.712978"], ["updated_at", "2015-04-29 19:18:05.712978"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 2')
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1[0m  [["Mock_2", "11:00am-11:20am"]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1[0m  [["Mock_2", "10:40am-11:00am"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 1')[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 2')
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 3')[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 32ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-29 14:18:05 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 66ms (Views: 65.8ms | ActiveRecord: 0.2ms)

@@ -1,6 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Appointments</h1>
+
+<% if flash[:notice] && flash[:notice][0] == "Error timeslot Below:" %>
+<p id="notice">
+      <h3>Please check your company information, Following time slots lack enough company or represents to assign each student with a company:</h3>
+      <ul>
+      <% flash[:notice].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+</p>
+<% else %>
+<p id="notice"><%= notice %></p>
+<% end %>
 
 <table>
   <thead>
@@ -35,5 +46,3 @@
 <%= link_to 'New Appointment', new_appointment_path %>
 
 <%= link_to 'Generate', generate_path%>
-<br>
-<%= link_to 'Back', sessions_url %>

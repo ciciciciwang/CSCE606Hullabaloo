@@ -251,9 +251,9 @@ end
 ###################################################################
 
 	    usif= item[3]=="US Citizen Only"? true:false
-	    conjobtype = item[1] == student[3] || item[1] == 'any'
-	    condegree = item[2] == student[2] || item[2] == 'any'
-	    concitizen = usif == student[4] || usif == false 
+	    conjobtype = item[1] == student[3] || item[1] == 'any' || item[1] == nil
+	    condegree = item[2] == student[2] || item[2] == 'any' || item[2] == nil 
+	    concitizen = usif == student[4] || usif == false || usif == nil
 
 	    if (item[4] > 0 && conjobtype && condegree && concitizen)
 	    getone = student

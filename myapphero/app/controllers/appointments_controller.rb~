@@ -65,7 +65,7 @@ class AppointmentsController < ApplicationController
 
   def generate
     @studentfinish = []
-    @errormessage = ["error timeslot"]
+    @errormessage = ["Error timeslot Below:"]
     Appointment.delete_all
     #matchapp('11:30am-12:30am','Mock_1')
     matchappsection('Mock Interview 1')
@@ -251,7 +251,7 @@ end
 ###################################################################
 
 	    usif= item[3]=="US Citizen Only"? true:false
-	    conjobtype = item[1] == student[3] || item[1] == 'any'
+	    conjobtype = item[1] == student[3] || item[1] == 'any' || item[1] = nil
 	    condegree = item[2] == student[2] || item[2] == 'any'
 	    concitizen = usif == student[4] || usif == false 
 

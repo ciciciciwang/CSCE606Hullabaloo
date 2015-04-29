@@ -1,6 +1,6 @@
 <h1>Listing Appointments</h1>
 
-<% if flash[:notice] && flash[:notice][0] == "Error timeslot Below:" %>
+<% if flash[:notice] && flash[:notice][0] == "error timeslot" %>
 <p id="notice">
       <h3>Please check your company information, Following time slots lack enough company or represents to assign each student with a company:</h3>
       <ul>

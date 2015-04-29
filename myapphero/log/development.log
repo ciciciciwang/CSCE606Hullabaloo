@@ -44712,3 +44712,585 @@ Processing by AppointmentsController#index as HTML
   [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
   Rendered appointments/index.html.erb within layouts/application (4.2ms)
 Completed 200 OK in 92ms (Views: 90.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2015-04-28 23:16:07 -0500
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (12.0ms)
+  Rendered companies/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 84ms (Views: 83.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments/new" for 127.0.0.1 at 2015-04-28 23:19:32 -0500
+Processing by AppointmentsController#new as HTML
+  Rendered appointments/_form.html.erb (5.9ms)
+  Rendered appointments/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 119ms (Views: 118.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments/" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 95ms (Views: 87.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/scaffolds.self-949f24d25ee3387c2e2953186b8b71f696eaca102372a36a60bb8fdf10bb0815.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/appointments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/application.self-77fad0abed587b48ac6b76072d6ff069bfe9833e76e1f72c4cbc39da98ac52a1.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/timeslots.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/useradds.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-28 23:24:53 -0500
+
+
+Started GET "/timeslots" for 127.0.0.1 at 2015-04-28 23:25:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TimeslotsController#index as HTML
+  [1m[35mTimeslot Load (1.1ms)[0m  SELECT "timeslots".* FROM "timeslots"
+  Rendered timeslots/index.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 242ms (Views: 226.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/scaffolds.self-949f24d25ee3387c2e2953186b8b71f696eaca102372a36a60bb8fdf10bb0815.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/application.self-77fad0abed587b48ac6b76072d6ff069bfe9833e76e1f72c4cbc39da98ac52a1.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/appointments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/timeslots.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/useradds.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:09 -0500
+
+
+Started GET "/students" for 127.0.0.1 at 2015-04-28 23:25:10 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.8ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 105ms (Views: 94.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/appointments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/scaffolds.self-949f24d25ee3387c2e2953186b8b71f696eaca102372a36a60bb8fdf10bb0815.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/timeslots.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/useradds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/application.self-77fad0abed587b48ac6b76072d6ff069bfe9833e76e1f72c4cbc39da98ac52a1.css?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/appointments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/timeslots.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/useradds.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-28 23:25:11 -0500
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 23:25:14 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (15.2ms)[0m  DELETE FROM "appointments"
+  [1m[36mTimeslot Load (0.8ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 1')[0m
+  [1m[35mStudent Load (0.6ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "22:30am-10:00am"]]
+  [1m[36mCompany Load (1.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.7ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mStudent Load (0.5ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "11:30am-12:30am"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "gold"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-29 04:25:14.840603"], ["updated_at", "2015-04-29 04:25:14.840603"]]
+  [1m[35m (13.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-29 04:25:14.861412"], ["updated_at", "2015-04-29 04:25:14.861412"]]
+  [1m[36m (13.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-29 04:25:14.881345"], ["updated_at", "2015-04-29 04:25:14.881345"]]
+  [1m[35m (6.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-29 04:25:14.893325"], ["updated_at", "2015-04-29 04:25:14.893325"]]
+  [1m[36m (6.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 2')
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1[0m  [["Mock_2", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.8ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )
+  [1m[36mCompany Load (1.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (1.8ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_2"], ["time_slot", "11:30am-12:30am"], ["company", "ccc"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-29 04:25:14.919373"], ["updated_at", "2015-04-29 04:25:14.919373"]]
+  [1m[36m (12.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 1')
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 2')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Resume_2" = $1  [["Resume_2", "11:30am-12:30am"]]
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND clinic_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND clinic_2_rep_no > 0 )
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND clinic_2_rep_no > 0 )[0m
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 3')
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 225ms (ActiveRecord: 90.4ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 23:25:14 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 76ms (Views: 74.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2015-04-28 23:25:21 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (0.7ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (1.0ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (21.3ms)
+  Rendered students/new.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 145ms (Views: 133.3ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2015-04-28 23:25:40 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iPociCBSrgpbkLU0ubCB7RYMgCUa6lPCRNp+MamOUXg85FV0irKSHI8fuTrSF5K366Yshwl8yfClxBTDAxKrQg==", "student"=>{"name"=>"wang", "UIN"=>"123132222", "email"=>"asd@tamu.edu", "US_Citizen"=>"0", "degree"=>"B.S.", "position_type"=>"Internship", "Mock_1"=>"", "Resume_1"=>"", "Resume_2"=>"11:30am-12:30am", "Mock_2"=>"", "Resume_3"=>"", "Lunch"=>""}, "commit"=>"Create Student"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('asd@tamu.edu') LIMIT 1[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'asd@tamu.edu' LIMIT 1
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123132222' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "Mock_1", "Mock_2", "Resume_1", "Resume_2", "Resume_3", "Lunch", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["name", "wang"], ["UIN", "123132222"], ["email", "asd@tamu.edu"], ["US_Citizen", "f"], ["degree", "B.S."], ["position_type", "Internship"], ["Mock_1", ""], ["Mock_2", ""], ["Resume_1", ""], ["Resume_2", "11:30am-12:30am"], ["Resume_3", ""], ["Lunch", ""], ["created_at", "2015-04-29 04:25:40.495526"], ["updated_at", "2015-04-29 04:25:40.495526"]]
+  [1m[36m (144.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT  "timeslots".* FROM "timeslots" WHERE "timeslots"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTimeslot Exists (0.5ms)[0m  SELECT  1 AS one FROM "timeslots" WHERE ("timeslots"."section" = 'Resume Clinic 2' AND "timeslots"."id" != 7 AND "timeslots"."slot" = '11:30am-12:30am') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "timeslots" SET "stunum" = $1, "updated_at" = $2 WHERE "timeslots"."id" = $3[0m  [["stunum", 23], ["updated_at", "2015-04-29 04:25:40.667885"], ["id", 7]]
+  [1m[35m (111.3ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)
+Redirected to http://localhost:3000/students/7
+Completed 302 Found in 320ms (ActiveRecord: 261.9ms)
+
+
+Started GET "/students/7" for 127.0.0.1 at 2015-04-28 23:25:40 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered students/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 101ms (Views: 97.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2015-04-28 23:25:44 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 62ms (Views: 61.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-28 23:25:48 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (76.3ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 1')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "22:30am-10:00am"]]
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36mStudent Load (1.0ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "11:30am-12:30am"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "gold"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-29 04:25:49.063067"], ["updated_at", "2015-04-29 04:25:49.063067"]]
+  [1m[36m (27.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-29 04:25:49.093208"], ["updated_at", "2015-04-29 04:25:49.093208"]]
+  [1m[35m (7.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-29 04:25:49.104554"], ["updated_at", "2015-04-29 04:25:49.104554"]]
+  [1m[36m (8.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-29 04:25:49.116211"], ["updated_at", "2015-04-29 04:25:49.116211"]]
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 2')[0m
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1  [["Mock_2", "11:30am-12:30am"]]
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_2"], ["time_slot", "11:30am-12:30am"], ["company", "ccc"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-29 04:25:49.134534"], ["updated_at", "2015-04-29 04:25:49.134534"]]
+  [1m[35m (10.7ms)[0m  COMMIT
+  [1m[36mTimeslot Load (0.6ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 1')[0m
+  [1m[35mTimeslot Load (0.5ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 2')
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Resume_2" = $1[0m  [["Resume_2", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.7ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND clinic_2_rep_no > 0 )
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND clinic_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.7ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND clinic_2_rep_no > 0 )
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 3')[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 193ms (ActiveRecord: 148.3ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-28 23:25:49 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.5ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 91ms (Views: 89.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-04-28 23:25:58 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 74ms (Views: 72.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-04-28 23:26:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WN3rOd86odY1aM97mpdWPUXlG1JKfCCQUBUQCFT41lTsw6LFddqdwOHnw3XxMEVnuE+38FnquqKxC3r6/mQsbg==", "session"=>{"email"=>"wang@tamu.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUseradd Load (83.7ms)[0m  [1mSELECT  "useradds".* FROM "useradds" WHERE "useradds"."email" = $1 LIMIT 1[0m  [["email", "wang@tamu.edu"]]
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 271ms (Views: 68.6ms | ActiveRecord: 85.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-04-28 23:26:04 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X1w8D/JmtRAP6nE21Kbl6Q8ZOo9dVNES2aGEBZ2A2LrrQnXzWIaJBttlfTi/Afaz8rOWLU7CSyA4v+73NxwigA==", "session"=>{"email"=>"wang@tamu.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUseradd Load (0.4ms)[0m  SELECT  "useradds".* FROM "useradds" WHERE "useradds"."email" = $1 LIMIT 1  [["email", "wang@tamu.edu"]]
+Redirected to http://localhost:3000/students
+Completed 302 Found in 92ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2015-04-28 23:26:04 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.6ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 89ms (Views: 87.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-29 12:38:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (150.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 1275ms (Views: 1265.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-04-29 12:38:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f93QJSNf52oE6dc7SmTasd1iF2LrO7bu9Y978WJVWzvLw5nZib/bfNBm2zUhw8nrIMi7wPitLNwUkREDyMmhAQ==", "session"=>{"email"=>"wang@tamu.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUseradd Load (87.7ms)[0m  SELECT  "useradds".* FROM "useradds" WHERE "useradds"."email" = $1 LIMIT 1  [["email", "wang@tamu.edu"]]
+Redirected to http://localhost:3000/students
+Completed 302 Found in 532ms (ActiveRecord: 364.5ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2015-04-29 12:38:20 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (41.9ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (59.2ms)
+Completed 200 OK in 191ms (Views: 132.4ms | ActiveRecord: 43.6ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2015-04-29 12:38:22 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mTimeslot Load (35.8ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Mock Interview 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.4ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 1' AND stunum>0)
+  [1m[36mTimeslot Load (0.5ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 2' AND stunum>0)[0m
+  [1m[35mTimeslot Load (0.3ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section = 'Resume Clinic 3' AND stunum>0)
+  [1m[36mTimeslot Load (0.3ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section = 'Lunch' AND stunum>0)[0m
+  Rendered students/_form.html.erb (16.9ms)
+  Rendered students/new.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 210ms (Views: 118.0ms | ActiveRecord: 39.8ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2015-04-29 12:38:25 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 97ms (Views: 95.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2015-04-29 12:38:27 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (16.0ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 153ms (Views: 99.7ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-29 12:49:00 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 218ms (Views: 208.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments/" for 127.0.0.1 at 2015-04-29 12:49:05 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (59.7ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (80.6ms)
+Completed 200 OK in 191ms (Views: 114.6ms | ActiveRecord: 62.7ms)
+
+
+Started DELETE "/appointments/490" for 127.0.0.1 at 2015-04-29 12:49:10 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UpW+/ruKUMHnxlMH6ThU2kVw8qfczBEXcQtZzSUXlpjmi/cCEWps1zNJXwmCn0eAuNpeBc9aiyWQFTM/j4tsog==", "id"=>"490"}
+  [1m[36mAppointment Load (0.6ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 490]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 490]]
+  [1m[35m (40.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 62ms (ActiveRecord: 42.7ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-29 12:49:10 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.9ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 95ms (Views: 91.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/appointments/491" for 127.0.0.1 at 2015-04-29 12:49:12 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Pq/Zckmf8J6REHv4QSgYwzgoq9OeXzTym5HxuPi/v8+KsZCO43/MiEWfd/YqjwuZxYIHcY3JrsB6j5tKUiNF9Q==", "id"=>"491"}
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 491]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 491]]
+  [1m[36m (29.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 33ms (ActiveRecord: 29.7ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-29 12:49:12 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.5ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 78ms (Views: 76.4ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/appointments/493" for 127.0.0.1 at 2015-04-29 12:49:14 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qV6GSXH5wxnGMqeJa5tA61rQ3iAe5JlASl7SZq26gl0dQM+12xn/DxK9q4cAPFOxp3pygg1yA3KrQLiUByZ4Zw==", "id"=>"493"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 493]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 493]]
+  [1m[35m (87.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 93ms (ActiveRecord: 88.1ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-29 12:49:14 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.5ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 69ms (Views: 67.4ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/appointments/494" for 127.0.0.1 at 2015-04-29 12:49:16 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"A1gQ+pKyQWNHyLUfvKgBbpVLxIoTMSpX0keaS5mEX3O3RlkGOFJ9dZNHuRHXDxI0aOFoKACnsGUzWfC5MxilSQ==", "id"=>"494"}
+  [1m[35mAppointment Load (0.5ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 494]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "appointments" WHERE "appointments"."id" = $1  [["id", 494]]
+  [1m[36m (17.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 23ms (ActiveRecord: 18.4ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-29 12:49:16 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.6ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 65ms (Views: 63.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/appointments/492" for 127.0.0.1 at 2015-04-29 12:49:17 -0500
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d/WBJ7U55XpUtJQz6sHn7TKa82hrmmQoL78OeNc1pXzD68jbH9nZbIA7mD2BZvS3zzBfyngM/hrOoWSKfalfRg==", "id"=>"492"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 492]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 492]]
+  [1m[35m (35.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 39ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-29 12:49:17 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.6ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 65ms (Views: 63.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/generate" for 127.0.0.1 at 2015-04-29 12:49:18 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "appointments"
+  [1m[36mTimeslot Load (0.7ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 1')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "22:30am-10:00am"]]
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (1.1ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "11:30am-12:30am"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (114.5ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "gold"], ["student", "fasdf"], ["UIN", "444555333"], ["created_at", "2015-04-29 17:49:18.679196"], ["updated_at", "2015-04-29 17:49:18.679196"]]
+  [1m[35m (10.8ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "faf"], ["UIN", "212332453"], ["created_at", "2015-04-29 17:49:18.808203"], ["updated_at", "2015-04-29 17:49:18.808203"]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "dads"], ["UIN", "213133123"], ["created_at", "2015-04-29 17:49:18.818819"], ["updated_at", "2015-04-29 17:49:18.818819"]]
+  [1m[35m (5.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "11:30am-12:30am"], ["company", "dsda"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-29 17:49:18.830861"], ["updated_at", "2015-04-29 17:49:18.830861"]]
+  [1m[36m (5.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 2')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1[0m  [["Mock_2", "11:30am-12:30am"]]
+  [1m[35mCompany Load (0.7ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_2"], ["time_slot", "11:30am-12:30am"], ["company", "ccc"], ["student", "jfiaji"], ["UIN", "333222333"], ["created_at", "2015-04-29 17:49:18.850740"], ["updated_at", "2015-04-29 17:49:18.850740"]]
+  [1m[36m (7.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.6ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 1')
+  [1m[36mTimeslot Load (0.4ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 2')[0m
+  [1m[35mStudent Load (0.5ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Resume_2" = $1  [["Resume_2", "11:30am-12:30am"]]
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND clinic_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND clinic_2_rep_no > 0 )
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND clinic_2_rep_no > 0 )[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 3')
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 267ms (ActiveRecord: 168.3ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2015-04-29 12:49:18 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 0.4ms)

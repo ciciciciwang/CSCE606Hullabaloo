@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :sessions
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'seesions#destroy'
+  
   get 'signup' => 'useradds#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'sessions#new'
   
-
+  get '/del' => 'sessions#del'
   get '/generate' => 'appointments#generate'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

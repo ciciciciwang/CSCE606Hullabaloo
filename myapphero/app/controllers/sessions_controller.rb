@@ -22,7 +22,9 @@ class SessionsController < ApplicationController
     end  
   end
 
-  def destroy
+  def del
+        log_out
+        redirect_to new_session_path, notice: 'Successfully Log Out!' 
   end 
 end  
 

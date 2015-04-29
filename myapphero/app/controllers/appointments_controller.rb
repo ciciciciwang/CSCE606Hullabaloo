@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
+   before_filter :authorize, only: [:index, :destroy, :new, :show], :except => :new_session_path
   # GET /appointments
   # GET /appointments.json
   def index

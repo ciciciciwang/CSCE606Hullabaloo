@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
       session[:stu_id].to_s==arg
   end
 
+  def log_out
+    session[:useradd_id] = nil
+  end
+
 end

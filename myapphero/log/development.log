@@ -44284,3 +44284,96 @@ Processing by StudentsController#index as HTML
   [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students"[0m
   Rendered students/index.html.erb within layouts/application (3.2ms)
 Completed 200 OK in 90ms (Views: 88.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-28 20:41:50 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 422ms (Views: 412.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-28 20:41:53 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (2.4ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 119ms (Views: 103.2ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/generate" for ::1 at 2015-04-28 20:41:54 -0500
+Processing by AppointmentsController#generate as HTML
+  [1m[36mSQL (10.8ms)[0m  [1mDELETE FROM "appointments"[0m
+  [1m[35mTimeslot Load (2.8ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 1')
+  [1m[36mStudent Load (2.5ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1[0m  [["Mock_1", "10:20am-10:40am"]]
+  [1m[35mCompany Load (2.5ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:20am-10:40am"], ["company", "ABV"], ["student", "ab"], ["UIN", "124121512"], ["created_at", "2015-04-29 01:41:54.810125"], ["updated_at", "2015-04-29 01:41:54.810125"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students" WHERE "students"."Mock_1" = $1  [["Mock_1", "10:00am-10:20am"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_1_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_1_rep_no > 0 )
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_1_rep_no > 0 )[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:00am-10:20am"], ["company", "ABV"], ["student", "agag"], ["UIN", "876182124"], ["created_at", "2015-04-29 01:41:54.821629"], ["updated_at", "2015-04-29 01:41:54.821629"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:00am-10:20am"], ["company", "ABV"], ["student", "adsgag"], ["UIN", "124451245"], ["created_at", "2015-04-29 01:41:54.823931"], ["updated_at", "2015-04-29 01:41:54.823931"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Mock Interview 2')
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1[0m  [["Mock_2", "11:00am-11:20am"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."Mock_2" = $1[0m  [["Mock_2", "10:40am-11:00am"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Platinum' AND intvw_2_rep_no > 0 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Gold' AND intvw_2_rep_no > 0 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "companies".* FROM "companies" WHERE (sponsor_level = 'Silver' AND intvw_2_rep_no > 0 )
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 1')[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 2')
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE (section= 'Resume Clinic 3')[0m
+Redirected to http://localhost:3000/appointments
+Completed 302 Found in 132ms (ActiveRecord: 30.3ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-28 20:41:54 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 92ms (Views: 90.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/appointments/3" for ::1 at 2015-04-28 20:42:04 -0500
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered appointments/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 84ms (Views: 70.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-28 20:42:06 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT "appointments".* FROM "appointments"
+  Rendered appointments/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 69ms (Views: 67.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/appointments/new" for ::1 at 2015-04-28 20:42:08 -0500
+Processing by AppointmentsController#new as HTML
+  Rendered appointments/_form.html.erb (25.0ms)
+  Rendered appointments/new.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 132ms (Views: 131.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/appointments" for ::1 at 2015-04-28 20:42:10 -0500
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  Rendered appointments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 86ms (Views: 85.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions" for ::1 at 2015-04-28 20:42:12 -0500
+Processing by SessionsController#index as HTML
+  Rendered sessions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 72ms (Views: 71.4ms | ActiveRecord: 0.0ms)

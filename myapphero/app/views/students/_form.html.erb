@@ -91,7 +91,7 @@
     <strong><%= " Company Representatives"%></strong>
     <%= " from 11:45am - 12:45pm, "%>
     <strong><%="Monday"%></strong><br>
-    <%= f.select :Lunch, options_for_select(@lunch_slots), :prompt=>"---Please select---" %>
+    <%= f.select :Lunch, options_for_select(['Attend', 'Not Attend']), :prompt=>"---Please select---"  %>
   </font><br><br><br>
   </div>
 
